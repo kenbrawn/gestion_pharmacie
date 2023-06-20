@@ -31,7 +31,7 @@
   <input type="text" id="pharmacie" name="pharmacie">
   <input type="submit" value="Rechercher">
 </form>
-<img src="b.jpg" alt="">
+<img src=".jpg" alt="">
 
 <table>
   <thead>
