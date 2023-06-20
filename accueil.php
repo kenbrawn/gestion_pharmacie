@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-// le menu du page
   <nav>
   <ul>
     <li><a href="#">Accueil</a></li>
@@ -24,7 +23,6 @@
   </ul>
 </nav>
 
-//le bouton rechercher
 <form method="get" action="recherche.php">
   <label for="medicament">Médicament :</label>
   <input type="text" id="medicament" name="medicament">
@@ -33,8 +31,8 @@
   <input type="text" id="pharmacie" name="pharmacie">
   <input type="submit" value="Rechercher">
 </form>
+<img src="b.jpg" alt="">
 
-// tableau de bord de cette page
 <table>
   <thead>
     <tr>
