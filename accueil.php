@@ -31,7 +31,7 @@
   <input type="text" id="pharmacie" name="pharmacie">
   <input type="submit" value="Rechercher">
 </form>
-<img src=".jpg" alt="">
+
 
 <table>
   <thead>
@@ -55,5 +55,29 @@
   </tbody>
 </table>
 
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom du médicament</th>
+      <th>Prix</th>
+      <th>Quantité en stock</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Aspirine</td>
+      <td>5€</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Paracétamol</td>
+      <td>4€</td>
+      <td>100</td>
+    </tr>
+  </tbody>
+</table>
 </body>
 </html>
