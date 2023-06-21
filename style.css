@@ -1,10 +1,12 @@
 nav {
-    color: rgb(59, 185, 52);
-    text-align: right;
+    color: rgb(203, 224, 9);
+    text-align: end;
+    display: flex;
+    flex-wrap: wrap;
   }
   nav li{
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     align-items: flex-start;
   }
   
@@ -17,20 +19,29 @@ nav {
 
   
   nav a {
-    color: #5b1818;
-    text-decoration: none;
+    color: #e31212;
+    text-decoration-color: blueviolet;
   }
   body {
-    background: url(./image/image2.jpg.jpg);
-    background-size: cover; 
+    background: url(./image/pharma.jpg);
+     
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
+    width:1000px;
+    height: 800px;
   }
   image{
-    width: 50%;
+    width: 100%;
     position: absolute;
-    top: 50px;
+    top: 30px;
     left: 50px;
+  }
+  footer{
+    padding: 20px;
+    text-align: end;
+    align-items: end;
+    display: flex;
   }
   
   

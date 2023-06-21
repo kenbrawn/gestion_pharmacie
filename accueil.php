@@ -33,7 +33,7 @@
 </form>
 
 
-<table>
+<table border="1">
   <thead>
     <tr>
       <th>Nom du médicament</th>
@@ -54,30 +54,8 @@
     </tr>
   </tbody>
 </table>
-
-
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Nom du médicament</th>
-      <th>Prix</th>
-      <th>Quantité en stock</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Aspirine</td>
-      <td>5€</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <td>Paracétamol</td>
-      <td>4€</td>
-      <td>100</td>
-    </tr>
-  </tbody>
-</table>
+<footer>
+  <p>contacter nous </p>
+</footer>
 </body>
 </html>
