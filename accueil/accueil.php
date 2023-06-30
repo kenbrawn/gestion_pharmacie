@@ -36,10 +36,10 @@
 	</div>
 
 	<div class="form-container hidden" id="ajoutmedicament-form">
-		<form method="post">
+		<form method="post" action ="../formulaire/ajout_produit.php">
 			<h2>Ajout Medicaments</h2>
-      <label for="nom_medicament">Nom de medicament:</label>
-			<input type="text" id="nom_medicament"" name="nom_medicament" required>
+           <label for="nom_medicament">Nom de medicament:</label>
+			<input type="text" id="nom_medicament" name="nom_medicament" required>
 			<label for="designation">Designation:</label>
 			<input type="text" id="designation" name="designation" required>
             <label for="prix_medicament">Prix du medicament :</label>

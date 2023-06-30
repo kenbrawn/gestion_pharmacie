@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body >
+	
 	<nav>
 		<ul>
 			<li><a href="#" onclick="showLoginForm()">Login</a></li>
@@ -16,9 +17,9 @@
 		<form action="login.php" method="post">
 			<h2>Login</h2>
 			<label for="username">Nom d'utilisateur:</label>
-			<input type="text" id="username" name="username" required>
+			<input type="text" id="username" name="nom_utilisateur" required>
 			<label for="password">Mot de passe:</label>
-			<input type="password" id="password" name="password" required>
+			<input type="password" id="password" name="mdp_utilisateur" required>
 			<input type="submit" value="Login">
 		</form> 
         <div class="description">
