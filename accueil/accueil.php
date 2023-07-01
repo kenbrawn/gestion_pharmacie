@@ -36,9 +36,9 @@
 	</div>
 
 	<div class="form-container hidden" id="ajoutmedicament-form">
-		<form method="post" action ="../formulaire/ajout_produit.php">
+		<form method="post" action ="../affichage/ajout_medicament.php">
 			<h2>Ajout Medicaments</h2>
-           <label for="nom_medicament">Nom de medicament:</label>
+            <label for="nom_medicament">Nom de medicament:</label>
 			<input type="text" id="nom_medicament" name="nom_medicament" required>
 			<label for="designation">Designation:</label>
 			<input type="text" id="designation" name="designation" required>
@@ -70,11 +70,11 @@
   <div class="form-container hidden" id="vente-form">
 		<form method="post">
 			<h2>Vente</h2>
-      <label for="code">code de medicament:</label>
+            <label for="code">code de medicament:</label>
 			<input type="int" id="code" name="code" required>
 			<label for="new-username">Nom d'utilisateur:</label>
 			<input type="text" id="new-username" name="new-username" required>
-      <label>Prix :</label>
+            <label>Prix :</label>
 			<input type="text" name="prix"><br>
 			<input type="submit" value="Register">
 		</form>

@@ -31,14 +31,19 @@
 	</div>
 
 	<div class="form-container hidden" id="register-form">
-		<form method="post">
+		<form method="post" action="enregistrement.php">
 			<h2>enregistrer</h2>
 			<label for="new-username">Nom d'utilisateur:</label>
-			<input type="text" id="new-username" name="new-username" required>
+			<input type="text" id="new-username" name="nom_utilisateur" required>
 			<label for="new-password">Mot de passe:</label>
-			<input type="password" id="new-password" name="new-password" required>
+			<input type="password" id="new-password" name="mdp_utilisateur" required>
 			<label for="confirm-password">Confirmer votre mot de passe:</label>
-			<input type="password" id="confirm-password" name="confirm-password" required>
+			<input type="password" id="confirm_password" name="confirm_password" required>
+			<label for="user-type">Type d'utilisateur:</label>
+			<select id="user-type" name="type_utilisateur" required>
+				<option value="admin">Admin</option>
+				<option value="utilisateur">Utilisateur</option>
+			</select>
 			<input type="submit" value="Register">
 		</form>
 	</div>

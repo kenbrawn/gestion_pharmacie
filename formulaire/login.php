@@ -16,6 +16,7 @@ if (!$conn) {
 $nom= $_POST['nom_utilisateur'];
 $pwd = $_POST['mdp_utilisateur'];
 
+
 // Sélection de l'utilisateur correspondant aux informations de connexion
 $sql = "SELECT * FROM utilisateur WHERE nom_utilisateur='$nom' AND mdp_utilisateur='$pwd'";
 $result = mysqli_query($conn, $sql);
