@@ -86,7 +86,7 @@ label {
 
 input[type="text"],
 input[type="password"], 
-input[type="telephone"],
+
 input[type="telephone"]
 {
 	width: 100%;
@@ -107,4 +107,20 @@ input[type="submit"] {
 	
 .hidden {
 	display: none;
+}
+.password-toggle,
+input[type="mdp_utilisateur"] {
+    display: inline-block;
+}
+.password-toggle {
+    cursor: context-menu;
+    position: absolute;
+    
+
+    transform-style: preserve-3d;
+}
+.voir-liste {
+	color: red;
+	font-size: 20px;
+	font-style: italic;
 }

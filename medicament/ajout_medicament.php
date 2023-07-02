@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $quantite_stock = $_POST['quantite_stock'];
     $date_ajout = $_POST['date_ajout'];
     $date_peremption = $_POST['date_peremption'];
-    $code=$_POST['code'];
+
     // Connexion à la base de données
     $servername = "localhost";
     $username = "root";
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Insertion des informations dans la base de données
     $sql = "INSERT INTO medicament(nom_medicament, designation, prix_medicament, quantite_stock, date_ajout, date_peremption)
             VALUES ('$nom_medicament', '$designation', '$prix_medicament', '$quantite_stock', '$date_ajout', '$date_peremption')";
-    $code=$_POST["code"];
+   
     if ($conn->query($sql) === TRUE) {
         echo "Les informations ont été insérées avec succès dans la base de données.";
     } else {
@@ -42,10 +42,24 @@ if ($conn->connect_error) {
     die("Échec de la connexion à la base de données : " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM medicament";
+$page = isset($_GET['page']) ? $_GET['page'] : 1; // Récupère le numéro de page à partir de la requête GET, sinon utilise la page 1 par défaut
+$limit = 6; // Nombre d'éléments par page
+$offset = ($page - 1) * $limit; // Calcul de l'offset
+
+$sql = "SELECT * FROM medicament LIMIT $limit OFFSET $offset";
 $result = $conn->query($sql);
+$total_rows = $result->num_rows; // Nombre total d'éléments
+$total_pages = ceil($total_rows / $limit); // Nombre total de pages arrondi à l'entier supérieur
+        
+
 
 if ($result->num_rows > 0) {
+  
+
+    echo'<form method="POST" action="recherche.php">
+    <input type="text" name="search_medicament" placeholder="rechercher ">
+    <button type="submit">Search</button>
+</form>';
     echo "<table border=1>";
     echo "<tr><th>code</th><th>Nom du médicament</th><th>Désignation</th><th>Prix du médicament</th><th>Quantité des stocks</th><th>Date d'ajout</th><th>Date de péremption</th><th>supprimer</th><th>modifier</th></tr>";
     while ($row = $result->fetch_assoc()) {
@@ -62,7 +76,19 @@ if ($result->num_rows > 0) {
         echo "</tr>";
     }
     echo "</table>";
-} else {
+        
+        echo '<div class="pagination">';
+    for ($i = 1; $i <= $total_pages; $i++) {
+        echo '<a href="?page=' . $i . '">' . $i . '</a>';
+    }
+    echo '</div>';
+  
+    
+   
+
+}
+
+ else {
     echo "Aucun médicament enregistré dans la base de données.";
 }
 

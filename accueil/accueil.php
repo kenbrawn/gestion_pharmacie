@@ -7,9 +7,9 @@
 <body>
 	<nav>
 		<ul>
+		<!--<li><a href="#" onclick="showVenteForm()">produits</a></li>-->
 			<li><a href="#" onclick="showAjoutclientForm()">Client</a></li>
 			<li><a href="#" onclick="showAjoutmedicamentForm()">Medicaments</a></li>
-      
 			<li><a href="#" onclick="showAjoutfournisseurForm()">Ajout fournisseur</a></li>
       		<li><a href="#" onclick="showVenteForm()">Vente</a></li>
 			<li><a href="#" onclick="logout()">Deconnexion</a></li>
@@ -17,16 +17,17 @@
 	</nav>
 
 	<div class="form-container hidden" id="ajoutclient-form">
-		<form action="" method="post">
+		<form action="../client/client.php" method="post">
 			<h2>Client</h2>
 			<label for="nom_client">Nom du client:</label>
 			<input type="text" id="nom_client" name="nom_client" required>
             <label for="adresse_client">adresse:</label>
 			<input type="text" id="adresse_client" name="adresse_client" required>
             <label for="telephone">telephone:</label>
-			<input type="telephone" id="telephone" name="telephone" required>
+			<input type="number" id="telephone" name="telephone" required><br><br>
 			
-			<input type="submit" value="enregistrer">
+			<input type="submit" value="enregistrer"><br><br>
+			<a href="../client/client.php" class="voir_liste" style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a>
 		</form>
         <div class="description">
         <!-- Description de votre site web ici -->
@@ -51,58 +52,60 @@
 			<label for="date_peremption">Date de peremption :</label>
 			<input type="date" id="date_peremption" name="date_peremption" required>
 			<input type="submit" value="Register">
+			<a href="../medicament/ajout_medicament.php" style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a>
 		</form>
 	</div>
   <div class="form-container hidden" id="ajoutfournisseur-form">
-		<form method="post">
+		<form method="post" action="../fournisseurs/fournisseur.php">
 			<h2>Ajout Fournisseur</h2>
-   
 			<label for="nom_fournisseur">Nom du fournisseur:</label>
 			<input type="text" id="nom_fournisseur" name="nom_fournisseur" required>
       		<label for="type_fournisseur">Type de fournisseur:</label>
 			<input type="text" id="type_fournisseur" name="type_fournisseur" required>
     		<label for="date_creation">Date de creation :</label>
-      		<input type="date" id="date_creation" name="date_creation" required>
+      		<input type="date" id="date_creation" name="date_creation" required><br><br>
   
-			<input type="submit" value="enregistrer">
+			<input type="submit" value="enregistrer"><br><br>
+			<a href="../fournisseurs/fournisseur.php"  style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a>
 		</form>
 	</div>
   <div class="form-container hidden" id="vente-form">
-		<form method="post">
+		<form method="post" action="../vente/vente.php">
 			<h2>Vente</h2>
-            <label for="code">code de medicament:</label>
-			<input type="int" id="code" name="code" required>
-			<label for="new-username">Nom d'utilisateur:</label>
-			<input type="text" id="new-username" name="new-username" required>
-            <label>Prix :</label>
-			<input type="text" name="prix"><br>
-			<input type="submit" value="Register">
+			<label for="new-username">Nom de  medicament:</label>
+			<input type="text" id="nom_medicament" name="nom_medicament" required>
+            <label for="prix_unitaire">Prix  unitaire:</label>
+			<input type="int" name="prix_unitaire"><br>
+			<label for="quantite_vendu">Quantite vendu:</label>
+			<input type="int" name="quantite_vendu"><br><br>
+			<input type="submit" value="Register"><br><br>
+			<a href="../vente/vente.php" style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a>
 		</form>
 	</div>
 
 	<script>
-        document.getElementById("ajoutclient-form").classList.remove("hidden");
+       document.getElementById("ajoutclient-form").classList.remove("hidden");
 		  function showAjoutclientForm() {
 			var ajoutclientForm = document.getElementById("ajoutclient-form");
 			var ajoutmedicamentForm = document.getElementById("ajoutmedicament-form");
-      var ajoutfournisseurForm = document.getElementById("ajoutfournisseur-form");
-      var venteForm = document.getElementById("vente-form");
+            var ajoutfournisseurForm = document.getElementById("ajoutfournisseur-form");
+            var venteForm = document.getElementById("vente-form");
 			ajoutclientForm.classList.remove("hidden"); 
 			ajoutmedicamentForm.classList.add("hidden");
-      ajoutfournisseurForm.classList.add("hidden");
-      venteForm.classList.add("hidden");
+            ajoutfournisseurForm.classList.add("hidden");
+            venteForm.classList.add("hidden");
 		}
 
 		function showAjoutmedicamentForm() {
 
-      var ajoutclientForm = document.getElementById("ajoutclient-form");
+            var ajoutclientForm = document.getElementById("ajoutclient-form");
 			var ajoutmedicamentForm = document.getElementById("ajoutmedicament-form");
-      var ajoutfournisseurForm = document.getElementById("ajoutfournisseur-form");
-      var venteForm = document.getElementById("vente-form");
+            var ajoutfournisseurForm = document.getElementById("ajoutfournisseur-form");
+            var venteForm = document.getElementById("vente-form");
 			ajoutclientForm.classList.add("hidden"); 
 			ajoutmedicamentForm.classList.remove("hidden");
-      ajoutfournisseurForm.classList.add("hidden");
-      venteForm.classList.add("hidden");
+            ajoutfournisseurForm.classList.add("hidden");
+            venteForm.classList.add("hidden");
 
 		}
     function showAjoutfournisseurForm() {
@@ -130,6 +133,8 @@ ajoutfournisseurForm.classList.add("hidden");
 venteForm.classList.remove("hidden");
 
 }
+
+
 function logout() {
   // Effacer les cookies si nécessaire
   document.cookie = "nom_du_cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";

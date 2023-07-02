@@ -48,9 +48,9 @@ li {
 
 a {
 	text-decoration: #0f82ca;
-	color: #0f82ca;
+	color: #f4540a;
 	padding: 10px 20px;
-	border-radius: 5px;
+	border-radius: 25px;
 }
 
 a:hover {
@@ -86,11 +86,10 @@ label {
 
 input[type="text"],
 input[type="password"], 
-input[type="telephone"],
+input[type="number"],
 input[type="code"],
-input[type="entreprise"] 
-
-
+input[type="entreprise"] ,
+input[type="int"]
 
 {
 	width: 100%;

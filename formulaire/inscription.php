@@ -19,7 +19,10 @@
 			<label for="username">Nom d'utilisateur:</label>
 			<input type="text" id="username" name="nom_utilisateur" required>
 			<label for="password">Mot de passe:</label>
-			<input type="password" id="password" name="mdp_utilisateur" required>
+			<div class="password-input-container">
+            <input type="password" id="password" name="mdp_utilisateur" required>
+            <span class="password-toggle" onclick="togglePasswordVisibility()">&#x1F441;</span>
+        </div>
 			<input type="submit" value="Login">
 		</form> 
         <div class="description">
@@ -63,6 +66,20 @@
 			loginForm.classList.add("hidden");
 			registerForm.classList.remove("hidden");
 		}
+		
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var passwordToggle = document.querySelector(".password-toggle");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                passwordToggle.innerHTML = "&#x1F443;"; // Eye icon open
+            } else {
+                passwordInput.type = "password";
+                passwordToggle.innerHTML = "&#x1F441;"; // Eye icon closed
+            }
+        }
+    
 	</script>
 </body>
 </html>
