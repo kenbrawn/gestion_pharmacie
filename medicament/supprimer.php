@@ -42,7 +42,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     echo "<table border=1>";
-    echo "<tr><th>code</th><th>Nom du médicament</th><th>Désignation</th><th>Prix du médicament</th><th>Quantité des stocks</th><th>Date d'ajout</th><th>Date de péremption</th><th>supprimer</th><th>modifier</th></tr>";
+    echo "<tr><th>code</th><th>Nom du médicament</th><th>Désignation</th><th>Prix du médicament</th><th>Quantité des stocks</th><th>Date d'ajout</th><th>Date de péremption</th><th>modifier</th><th>supprimer</th></tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>".$row['code']."</td>";

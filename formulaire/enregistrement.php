@@ -20,7 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!$conn) {
             die('Erreur de connexion à la base de données: ' . mysqli_connect_error());
         }
-
+        session_start();
+        $_SESSION['nom_utilisateur'] = $_POST['nom_utilisateur'];
         // Échapper les caractères spéciaux pour éviter les injections SQL
         $nom_utilisateur = mysqli_real_escape_string($conn, $nom_utilisateur);
         $mdp_utilisateur = mysqli_real_escape_string($conn, $mdp_utilisateur);

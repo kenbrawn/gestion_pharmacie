@@ -119,8 +119,28 @@ input[type="mdp_utilisateur"] {
 
     transform-style: preserve-3d;
 }
-.voir-liste {
-	color: red;
-	font-size: 20px;
+.input[type="hidden"]{
+	background: #e3d50c;
+	text-align: center;
+}
+.captcha{
+	width:50%;
+	background: #e3d50c;
+	text-align: center;
+	text-transform: uppercase;
+}
+footer{
+	background-color: #4CAF50;
+	color:green;
 	font-style: italic;
+	font-weight: 700;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	
+	
+}
+#signature{
+	color:#f4540a;
+	margin-left: 50px;
+	margin-right: 20px;
 }

@@ -55,25 +55,33 @@ if (isset($_GET['code'])) {
             <title>Modifier le médicament</title>
             <link rel="stylesheet" type="text/css" href="style.css">
             <style>
+                body{
+                    background-color:red;
+                     /* background: url("image.jpg");*/
+                        background-repeat: no-repeat;
+		                background-size: cover;
+                }
                 .form-container{
                         display: flex;
                         flex-direction: row;
                         align-items: center;
-                        margin-top: 50px;
-                        background: url("image.jpg");
+                        margin-top: 10px;
+                       
                    }
                 form {
-                        background-color: #8f9b93;
+                        background-color:green;
                         border-radius: 5px;
+                        margin-right :50px;;
                         box-shadow: 0 0 10px rgba(33, 9, 172, 0.3);
                         padding: 20px;
-                        width: 400px;
+                        width: 300px;
+                     
                    }  
                    input[type="text"],
                    input[type="number"],
                    input[type="date"] 
                   {
-                        width: 100%;
+                        width: 200px;
                         padding: 10px;
                         border: 1px solid #ccc;
                         border-radius: 3px;

@@ -43,19 +43,24 @@ if ($conn->connect_error) {
 }
 
 $page = isset($_GET['page']) ? $_GET['page'] : 1; // Récupère le numéro de page à partir de la requête GET, sinon utilise la page 1 par défaut
-$limit = 6; // Nombre d'éléments par page
+$limit = 4; // Nombre d'éléments par page
 $offset = ($page - 1) * $limit; // Calcul de l'offset
 
 $sql = "SELECT * FROM medicament LIMIT $limit OFFSET $offset";
 $result = $conn->query($sql);
+$num_rows="SELECT COUNT(*)  FROM medicament";
+
 $total_rows = $result->num_rows; // Nombre total d'éléments
 $total_pages = ceil($total_rows / $limit); // Nombre total de pages arrondi à l'entier supérieur
-        
-
+ /*       
+echo'total rows='.$total_rows.'<br>';
+echo'page  '.$total_pages.'de la site';*/
 
 if ($result->num_rows > 0) {
   
-
+    echo"<header>
+    <h2>On est dans la liste des medicaments </h2>
+</header>";
     echo'<form method="POST" action="recherche.php">
     <input type="text" name="search_medicament" placeholder="rechercher ">
     <button type="submit">Search</button>
@@ -77,13 +82,17 @@ if ($result->num_rows > 0) {
     }
     echo "</table>";
         
-        echo '<div class="pagination">';
+    echo '<div class="pagination">';
     for ($i = 1; $i <= $total_pages; $i++) {
         echo '<a href="?page=' . $i . '">' . $i . '</a>';
-    }
+      }
     echo '</div>';
   
-    
+    echo'<footer><div class="">
+    <div class="float-start">
+        <h3 id="signature">juin-juillet 2023 &copy; ANDRIANAINA TSIRY KENNIA</h3>
+    </div>
+</div></footer>';
    
 
 }

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body >
-	
+<header>
+        <h2>Site web gestion de pharmacie </h2>
+</header>
 	<nav>
 		<ul>
 			<li><a href="#" onclick="showLoginForm()">Login</a></li>
@@ -22,14 +26,15 @@
 			<div class="password-input-container">
             <input type="password" id="password" name="mdp_utilisateur" required>
             <span class="password-toggle" onclick="togglePasswordVisibility()">&#x1F441;</span>
-        </div>
-			<input type="submit" value="Login">
+				
+				
+			<div >	
+				<input type="submit"  id="login" value="Login">
+			</div>
 		</form> 
-        <div class="description">
-        <!-- Description de votre site web ici -->
-        <p> Si vous n'avez pas de compte d'utlisateur!</p></br>
-		<p> creer d'abord votre compte en cliquant register au dessus.</p>
-        </div>
+
+               </div>
+      
 
 	</div>
 
@@ -81,5 +86,12 @@
         }
     
 	</script>
+	   <footer>
+	   			<div class="">
+                    <div class="float-start">
+                        <h3 id="signature">juin-juillet 2023 &copy; ANDRIANAINA TSIRY KENNIA</h3>
+                    </div>
+                </div>
+	   </footer>
 </body>
 </html>
