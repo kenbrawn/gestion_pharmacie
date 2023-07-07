@@ -12,10 +12,12 @@ if (!$conn) {
     die("Connexion échouée: " . mysqli_connect_error());
 }
 
-// Récupération des données du formulaire de connexion
-$nom= $_POST['nom_utilisateur'];
-$pwd = $_POST['mdp_utilisateur'];
+// Démarrage de la session
+session_start();
 
+// Récupération des données du formulaire de connexion
+$nom = $_POST['nom_utilisateur'];
+$pwd = $_POST['mdp_utilisateur'];
 
 // Sélection de l'utilisateur correspondant aux informations de connexion
 $sql = "SELECT * FROM utilisateur WHERE nom_utilisateur='$nom' AND mdp_utilisateur='$pwd'";
@@ -24,9 +26,8 @@ $result = mysqli_query($conn, $sql);
 // Vérification de l'existence de l'utilisateur dans la base de données
 if (mysqli_num_rows($result) > 0) {
     // L'utilisateur est authentifié avec succès
-   // echo "Connexion réussie";
-    // $_SESSION['username'] = $username; // Sauvegarde du nom d'utilisateur dans la session
-     header("Location: ../accueil/accueil.php");
+    $_SESSION['username'] = $nom; // Sauvegarde du nom d'utilisateur dans la session
+    header("Location: ../accueil/accueil.php");
 } else {
     // Échec de l'authentification
     echo "Nom d'utilisateur ou mot de passe incorrect";

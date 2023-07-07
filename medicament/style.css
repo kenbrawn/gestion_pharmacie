@@ -21,7 +21,7 @@ table {
     background-color: #f20d0d;
   }
   body{
-  background: white;
+  background: rgb(236, 10, 10);
     background-position: center; 
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -32,19 +32,3 @@ table {
 	color:green;
 	font-style: italic;
   }
-  /*
-  footer{
-    background-color: #4CAF50;
-    color:green;
-    font-style: italic;
-    font-weight: 700;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    
-    
-  }
-  #signature{
-    color:#f4540a;
-    margin-left: 50px;
-    margin-right: 20px;
-  }*/

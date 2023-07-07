@@ -53,13 +53,21 @@ if (isset($_GET['id_client'])) {
             <title>Modifier le client</title>
             <link rel="stylesheet" type="text/css" href="style.css">
             <style>
+                body{
+                   /*  background-color:red;*/
+                        background: url("../accueil/acueil_image.webp");
+                        background-repeat: no-repeat;
+		                background-size: cover;
+                        width:1000px;
+                        height:600px;
+                        
+                }
                 .form-container{
                         display: flex;
                         flex-direction: row;
                         align-items: center;
-                        margin-top: 5px;
-                      /*  background: url("client.jpg");*/
-
+                        
+                     
                    }
                 form {
                         background-color: #8f9b93;
@@ -67,6 +75,8 @@ if (isset($_GET['id_client'])) {
                         box-shadow: 0 0 10px rgba(33, 9, 172, 0.3);
                         padding: 50px;
                         width: 300px;
+                        margin-top: 15px;
+                        margin-right:500px;
                    }  
                    input[type="text"],
                    input[type="number"],
@@ -109,7 +119,7 @@ if (isset($_GET['id_client'])) {
         <body>
             <div class="form-container">
                 <div class="image-container">
-                    <img src="client.jpg"  alt="Image">
+                    
                 </div>
                 <form method="post" action="modifier.php?id_client=<?php echo $id_client; ?>">
                     <label for="nom_client">Nom du client:</label>

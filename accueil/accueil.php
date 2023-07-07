@@ -1,13 +1,16 @@
-<?php
-session_start();
-/*$imagePath = "/pharma.jpg";
+<?php 
+
+session_start();/*
+$imagePath = "/pharma.jpg";
+
+// Récupération des données du formulaire de connexion
 // Supposons que vous ayez stocké le chemin de l'image et le nom de l'utilisateur dans des variables de session lors de la connexion.
-$imagePath = $_SESSION['imagePath'];*/
+$imagePath = $_SESSION['pharma.jpg'];
 $nomUtilisateur = $_SESSION['nom_utilisateur'];
 
 // ... Autres traitements ...
 // Vous pouvez maintenant inclure le code HTML ci-dessus pour afficher l'image et le nom de l'utilisateur.
-?>
+  */?>
 
 
 <!DOCTYPE html>
@@ -31,10 +34,11 @@ $nomUtilisateur = $_SESSION['nom_utilisateur'];
 			<li><a href="#" onclick="logout()">Deconnexion</a></li>
 		</ul>
 	</nav>
-    <div class="profil">
-        <!--<img src="profil.png" alt="Photo de profil" class="profile-image">-->
+    <!-- <div class="profil">
+       <img src="profil.png" alt="Photo de profil" class="profile-image">
+		<img src="<?php echo $imagePath; ?>" alt="Image de profil" class="profile-image">
         <p><?php echo $nomUtilisateur; ?></p>
-    </div>
+    </div>-->
 	<div class="form-container hidden" id="ajoutclient-form">
 		<form action="../client/client.php" method="post">
 			<h2>Client</h2>

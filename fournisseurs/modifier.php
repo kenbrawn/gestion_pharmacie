@@ -53,12 +53,20 @@ if (isset($_GET['id_fournisseur'])) {
             <title>Modifier le fournisseur</title>
             <link rel="stylesheet" type="text/css" href="style.css">
             <style>
+                body{
+                       /* background: url("imagelogo.jpg");*/
+                        background-repeat: no-repeat;
+                        background-color:red;
+		                background-size: cover;
+                       /* width:1000px;
+                        height:200px;*/
+                }
                 .form-container{
                         display: flex;
                         flex-direction: row;
                         align-items: center;
                         margin-top: 5px;
-                      /*  background: url("client.jpg");*/
+                    
 
                    }
                 form {
@@ -67,6 +75,8 @@ if (isset($_GET['id_fournisseur'])) {
                         box-shadow: 0 0 10px rgba(33, 9, 172, 0.3);
                         padding: 50px;
                         width: 300px;
+                        margin-top: 15px;
+                        margin-right:500px;
                    }  
                    input[type="text"],
                    input[type="number"],
@@ -103,13 +113,14 @@ if (isset($_GET['id_fournisseur'])) {
                        padding-right:50px; /* Espacement entre l'image et le formulaire */
                        margin: 5px;
                      }
+                     
             </style>
         </head>
 
         <body>
             <div class="form-container">
                 <div class="image-container">
-                    <img src="fournisseur.jpg"  alt="Image">
+            
                 </div>
                 <form method="post" action="modifier.php?id_fournisseur=<?php echo $id_fournisseur; ?>">
                     <label for="nom_fournisseur">Nom du fournisseur:</label>

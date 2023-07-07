@@ -38,10 +38,13 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Échec de la connexion à la base de données : " . $conn->connect_error);
 }
-
+$page = isset($_GET['page']) ? $_GET['page'] : 1; 
+// Récupère le numéro de page à partir de la requête GET, sinon utilise la page 1 par défaut
+$limit = 3; // Nombre d'éléments par page
+$offset = ($page - 1) * $limit; 
 $sql = "SELECT * FROM fournisseur";
 $result = $conn->query($sql);
-
+$total_rows = $result->num_rows; // Nombre total d'éléments
 if ($result->num_rows > 0) {
     echo'<form method="POST" action="recherche.php">
     <input type="text" name="search_fournisseur" placeholder="Rechercher de fournisseur">
@@ -61,6 +64,17 @@ if ($result->num_rows > 0) {
         echo "</tr>";
     }
     echo "</table>";
+    $resultat_total=mysqli_query($conn,"SELECT COUNT(*) AS total FROM fournisseur");
+  $ligne_total=mysqli_fetch_array($resultat_total);
+  $total_elements=$ligne_total['total'];
+  $total_pages = ceil($total_elements / $limit); // Nombre total de pages arrondi à l'entier supérieur    
+    // Pagination
+    echo '<div class="pagination">';
+    for ($i = 1; $i <= $total_pages; $i++) {
+        echo '<a href="?page=' . $i . '">' . $i . '</a>&nbsp;';
+    }
+    echo '</div>';
+    
 }
  else {
          echo "Aucun fournisseur enregistré dans la base de données.";

@@ -56,8 +56,8 @@ if (isset($_GET['code'])) {
             <link rel="stylesheet" type="text/css" href="style.css">
             <style>
                 body{
-                    background-color:red;
-                     /* background: url("image.jpg");*/
+                    /*background-color:red;*/
+                      background: url("image.jpg");
                         background-repeat: no-repeat;
 		                background-size: cover;
                 }
