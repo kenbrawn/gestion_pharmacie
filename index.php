@@ -31,7 +31,7 @@
 				
 				
 			<div >	
-				<input type="submit"  id="login" value="Login">
+				<input type="submit"  id="login" value="Se connecter">
 			</div>
 		</form> 
 
@@ -54,7 +54,7 @@
 				<option value="admin">Admin</option>
 				<option value="utilisateur">Utilisateur</option>
 			</select>
-			<input type="submit" value="Register">
+			<input type="submit" value="enregistrer">
 		</form>
 	</div>
 
@@ -91,39 +91,29 @@
 
 <section>
 	<div id="line">
-		<div class="dline"></div>
-		<p style="color:rgb(180, 213, 15);
-			font-style: italic;
-			font-weight: 1000;">simplifier la gestion de votre taches avec l'application gestion de pharmacie en ligne </p>
-		<div class="dline"></div>
+		<div class="dline">
+		<p >simplifiez votre taches avec notre application<br> gestion de pharmacie en ligne </p>
+		</div>
 	</div>
 	<div id="derniers-articles" style="display: flex;">
 	<div id="derniers-articles" style="display: flex;">
-    <article id="art-1" style="flex: 1; text-align: center; display: flex; flex-direction: column; justify-content: flex-end;background:black;">
-        <h1 style="background-color: black; color: rgb(180, 213, 15); font-style: italic; font-weight: 700; margin-top: 30px; margin-bottom: 3px;">menu 1</h1>
+    <article id="art-1" style="flex: 1;margin-top:50px; text-align: center; display: flex; flex-direction: column; justify-content: flex-end;background:orange;">
+        <h1 style="background-color: black; color: rgb(180, 213, 15);margin-top:2px; font-style: italic; font-weight: 300; margin-top: 30px; margin-bottom: 1px;">Description 1</h1>
         <img src="./accueil/fournisseur2.jpg" alt="" style="width:300px;height:200px;margin:20px" />
-        <p style="margin-top: auto; background-color: black;">Liste des médicaments dans la pharmacie.</p>
-        <p style="margin-top: auto; background-color: black;">Voir tous les clients qui nous visitent.</p>
-        <p style="margin-top: auto; background-color: black;">Commander vos médicaments.</p>
-        <p style="margin-top: auto; background-color: black;">Faciliter le mode de commerce.</p>
-        <p style="margin-top: auto; background-color: black;">Informations de tous les fournisseurs de nos produits.</p>
+   
+        <p >En vue de faciliter une accessibilité économique des médicaments essentiels à la population, 
+l'accès aux médicaments essentiels de qualité a été reconnu dans plusieurs engagements internationaux comme un Droit Humain qui relève de l'éthique, de l'équité et de la justice sociale</p>
     </article>
-    <article id="art-2" style="flex: 1; text-align: center; display: flex; flex-direction: column; justify-content: flex-end;background:green;">
-        <h1 style="background-color: #74c50a; color: white; font-style: italic; font-weight: 700; margin-top: 30px; margin-bottom: 3px;">menu 2</h1>
+    <article id="art-2" style="flex: 1;margin-top:50px; text-align: center; display: flex; flex-direction: column; justify-content: flex-end;background:green;">
+        <h1 style="background-color: #74c50a; color: white; font-style: italic; font-weight: 300; margin-top: 30px; margin-bottom: 1px;">Description 2</h1>
         <img src="./accueil/pile.jpg" alt="" style="width:300px;height:200px;margin:20px" />
-        <p style="margin-top: auto; background-color: green; color: white;">Liste des médicaments dans la pharmacie.</p>
-        <p style="margin-top: auto; background-color: green; color: white;">Voir tous les clients qui nous visitent.</p>
-        <p style="margin-top: auto; background-color: green; color: white;">Commander vos médicaments.</p>
-        <p style="margin-top: auto; background-color: green; color: white;">Faciliter le mode de commerce.</p>
+        <p>l'analyse et le traitement des données ayant facilité la révision de la Liste  des Médicaments Essentiels qui répondent aux besoins prioritaires de santé d'une population
+		. La présente liste comporte de groupes pharmaco-thérapeutiques et  médicaments qui répondent aux pathologies les plus courantes du pays.</p>
     </article>
-    <article id="art-3" style="flex: 1; text-align: center; display: flex; flex-direction: column; justify-content: flex-end;background:red;">
-        <h1 style="background-color: #e00e0e; color: rgb(180, 213, 15); font-style: italic; font-weight: 700; margin-top: 30px; margin-bottom: 3px;">menu 3</h1>
+    <article id="art-3" style="flex: 1; margin-top:50px; text-align: center; display: flex; flex-direction: column; justify-content: flex-end;background:red;">
+        <h1 style="background-color: #e00e0e; color: rgb(180, 213, 15); font-style: italic; font-weight: 300; margin-top: 30px; margin-bottom: 1px;">Description 3</h1>
         <img src="./accueil/admin.jpg" alt="" style="width:300px;height:200px;margin:20px" />
-        <p style="margin-top: auto; background-color: red; color: white;">Gestion des clients.</p>
-        <p style="margin-top: auto; background-color: red; color: white;">Liste des médicaments dans la pharmacie.</p>
-        <p style="margin-top: auto; background-color: red; color: white;">Voir tous les clients qui nous visitent.</p>
-        <p style="margin-top: auto; background-color: red; color: white;">Commander vos médicaments.</p>
-        <p style="margin-top: auto; background-color: red; color: white;">Faciliter le mode de commerce.</p>
+       <p>Cet outil de référence prend en compte les trois niveaux de la pyramide sanitaire et demeure ainsi incontournable pour tout professionnel de santé, tout industriel et importateur soucieux de faciliter à la clientèle des institutions de santé, une accessibilité économique, optimale à des médicaments de qualité, de façon rationnelle. </p>
     </article>
 </div>
 
