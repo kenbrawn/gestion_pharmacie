@@ -71,15 +71,11 @@ $conn->close();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../style/client.css">
 </head>
 
 <body>
-    <div class="form-container hidden" id="ajoutmedicament-form">
-        <form method="post" action="">
-            <!-- Vos champs de formulaire ici -->
-        </form>
-    </div>
+
 </body>
 
 </html>
