@@ -42,7 +42,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 // Récupère le numéro de page à partir de la requête GET, sinon utilise la page 1 par défaut
 $limit = 2; // Nombre d'éléments par page
 $offset = ($page - 1) * $limit;
-$sql = "SELECT * FROM vente";
+$sql = "SELECT * FROM vente LIMIT $limit OFFSET $offset";
 $result = $conn->query($sql);
 
 $total_rows = $result->num_rows; // Nombre total d'éléments
@@ -52,7 +52,7 @@ if ($result->num_rows > 0) {
     <button type="submit">Rechercher</button>
 </form>';
     echo "<table border=1>";
-    echo "<tr><th>code</th><th>Nom medicament</th><th>prix unitaire</th><th>Quantite vendu</th></tr>";
+    echo "<tr><th>code</th><th>Nom medicament</th><th>prix unitaire</th><th>Quantite vendu</th><th>modifier</th><th>supprimer</th></tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row['code_vente'] . "</td>";
@@ -72,7 +72,7 @@ if ($result->num_rows > 0) {
     // Pagination
     echo '<div class="pagination">';
     for ($i = 1; $i <= $total_pages; $i++) {
-        echo '<a href="?page=' . $i . '">' . $i . '</a>&nbsp;';
+        echo '<a href="?page=' . $i . '" class="numero-page">' . $i . '</a>&nbsp;';
     }
     echo '</div>';
 }
@@ -90,7 +90,7 @@ $conn->close();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" class="css">
+    <link rel="stylesheet" href="../style/vente.css" class="css">
 </head>
 <body>
     
