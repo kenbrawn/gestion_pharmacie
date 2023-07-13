@@ -17,6 +17,7 @@ if (isset($_GET['code'])) {
         $nom_medicament = $_POST['nom_medicament'];
         $designation = $_POST['designation'];
         $prix_medicament = $_POST['prix_medicament'];
+        $nom_fournisseur = $_POST['nom_fournisseur '];
         $quantite_stock = $_POST['quantite_stock'];
         $date_ajout = $_POST['date_ajout'];
         $date_peremption = $_POST['date_peremption'];
@@ -53,50 +54,8 @@ if (isset($_GET['code'])) {
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Modifier le médicament</title>
-            <link rel="stylesheet" type="text/css" href="style.css">
-            <style>
-                body{
-                    /*background-color:red;*/
-                      background: url("image.jpg");
-                        background-repeat: no-repeat;
-		                background-size: cover;
-                }
-                .form-container{
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        margin-top: 10px;
-                       
-                   }
-                form {
-                        background-color:green;
-                        border-radius: 5px;
-                        margin-right :50px;;
-                        box-shadow: 0 0 10px rgba(33, 9, 172, 0.3);
-                        padding: 20px;
-                        width: 300px;
-                     
-                   }  
-                   input[type="text"],
-                   input[type="number"],
-                   input[type="date"] 
-                  {
-                        width: 200px;
-                        padding: 10px;
-                        border: 1px solid #ccc;
-                        border-radius: 3px;
-                        margin-bottom: 15px;
-                    }
-                    input[type="submit"] {
-                        background-color: #4CAF50;
-                        color: #fff;
-                        border: none;
-                        padding: 10px;
-                        border-radius: 3px;
-                        cursor: pointer;
-                    }
-
-            </style>
+            <link rel="stylesheet" type="text/css" href="../style/medicament.css">
+            
         </head>
 
         <body>
@@ -111,6 +70,9 @@ if (isset($_GET['code'])) {
                     <label for="prix_medicament">Prix du médicament:</label>
                     <input type="number" step="0.01" name="prix_medicament" value="<?php echo $row['prix_medicament']; ?>" required><br>
 
+                    <label for="nom_fournisseur">Nom fournisseur:</label>
+                    <input type="text" name="nom_fournisseur" value="<?php echo $row['nom_fournisseur']; ?>" ><br>
+
                     <label for="quantite_stock">Quantité des stocks:</label>
                     <input type="number" name="quantite_stock" value="<?php echo $row['quantite_stock']; ?>" required><br>
 
@@ -118,7 +80,7 @@ if (isset($_GET['code'])) {
                     <input type="date" name="date_ajout" value="<?php echo $row['date_ajout']; ?>" required><br>
 
                     <label for="date_peremption">Date de péremption:</label>
-                    <input type="date" name="date_peremption" value="<?php echo $row['date_peremption']; ?>" required><br>
+                    <input type="date" name="date_peremption" value="<?php echo $row['date_peremption']; ?>" ><br>
 
                     <input type="submit" value="Modifier">
                 </form>
