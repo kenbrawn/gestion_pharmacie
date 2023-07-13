@@ -5,49 +5,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom_utilisateur = $_POST['nom_utilisateur'];
     $mdp_utilisateur = $_POST['mdp_utilisateur'];
     $confirm_Password = $_POST['confirm_password'];
-    $type_utilisateur=$_POST["type_utilisateur"];
+    $type_utilisateur = $_POST["type_utilisateur"];
 
-     // Vérifier si les mots de passe correspondent
-     if ($mdp_utilisateur === $confirm_Password) {
-      
+    // Vérifier si les mots de passe correspondent
+    if ($mdp_utilisateur === $confirm_Password) {
+
         $servername = "localhost";
         $username = "root";
         $password = "";
         $dbname = "pharmacie";
-        
+
         $conn = mysqli_connect($servername, $username, $password, $dbname);
         // Vérification de la connexion à la base de données
         if (!$conn) {
             die('Erreur de connexion à la base de données: ' . mysqli_connect_error());
         }
+
         session_start();
         $_SESSION['nom_utilisateur'] = $_POST['nom_utilisateur'];
+
         // Échapper les caractères spéciaux pour éviter les injections SQL
         $nom_utilisateur = mysqli_real_escape_string($conn, $nom_utilisateur);
         $mdp_utilisateur = mysqli_real_escape_string($conn, $mdp_utilisateur);
 
-        // Création de la requête SQL
-        $requete = "INSERT INTO utilisateur (nom_utilisateur, mdp_utilisateur,type_utilisateur) VALUES ('$nom_utilisateur', '$mdp_utilisateur','$type_utilisateur')";
+        // Vérifier si le nom d'utilisateur existe déjà dans la base de données
+        $query = "SELECT * FROM utilisateur WHERE nom_utilisateur = '$nom_utilisateur'";
+        $result = mysqli_query($conn, $query);
 
-        // Exécution de la requête SQL
-        if (mysqli_query($conn, $requete)) {
-            $message = "L'utilisateur '$nom_utilisateur' a été enregistré avec succès!";
+        if (mysqli_num_rows($result) > 0) {
+            // Le nom d'utilisateur existe déjà
+            $message = "Le nom d'utilisateur '$nom_utilisateur' existe déjà. Veuillez choisir un autre nom d'utilisateur.";
         } else {
-            $message = "Erreur lors de l'enregistrement de l'utilisateur: " . mysqli_error($conn);
+            // Le nom d'utilisateur n'existe pas, effectuer l'enregistrement
+            $requete = "INSERT INTO utilisateur (nom_utilisateur, mdp_utilisateur, type_utilisateur) VALUES ('$nom_utilisateur', '$mdp_utilisateur', '$type_utilisateur')";
+
+            if (mysqli_query($conn, $requete)) {
+                $message = "L'utilisateur '$nom_utilisateur' a été enregistré avec succès!";
+            } else {
+                $message = "Erreur lors de l'enregistrement de l'utilisateur: " . mysqli_error($conn);
+            }
         }
 
         // Fermeture de la connexion à la base de données
         mysqli_close($conn);
-        
+
         if (isset($message)) {
-            // Redirection vers la page de connexion après 2 secondes
-            header("refresh:2; url=inscription.php");
+            // Redirection vers la page de connexion après 5 secondes
+            header("refresh:5; url=../index.php");
         }
     } else {
         // Les mots de passe ne correspondent pas
         $message = "Les mots de passe ne correspondent pas. Veuillez réessayer.";
     }
-
 }
 ?>
 
