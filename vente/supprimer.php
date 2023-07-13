@@ -29,7 +29,7 @@ else {
 
 $conn->close();
 
-// Afficher tous les médicaments enregistrés dans la base de données
+// Afficher tous les médicaments vendus enregistrés dans la base de données
 $servername = "localhost";
 $username = "root";
 $password = "";
