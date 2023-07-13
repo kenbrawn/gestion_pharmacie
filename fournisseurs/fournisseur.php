@@ -42,7 +42,9 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 // Récupère le numéro de page à partir de la requête GET, sinon utilise la page 1 par défaut
 $limit = 3; // Nombre d'éléments par page
 $offset = ($page - 1) * $limit; 
-$sql = "SELECT * FROM fournisseur";
+$sql = "SELECT *
+FROM fournisseur
+LIMIT $limit OFFSET $offset";
 $result = $conn->query($sql);
 $total_rows = $result->num_rows; // Nombre total d'éléments
 if ($result->num_rows > 0) {
@@ -51,7 +53,7 @@ if ($result->num_rows > 0) {
     <button type="submit">Rechercher</button>
 </form>';
     echo "<table border=1>";
-    echo "<tr><th>ID</th><th>Nom  du fournisseur</th><th>type de fournisseur</th><th>Date de creation</th></tr>";
+    echo "<tr><th>ID</th><th>Nom  du fournisseur</th><th>type de fournisseur</th><th>Date de creation</th><th>modifier</th><th>Supprimer</th></tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row['id_fournisseur'] . "</td>";
@@ -90,7 +92,7 @@ $conn->close();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" class="css">
+    <link rel="stylesheet" href="../style/fournisseur.css" >
 </head>
 <body>
     
