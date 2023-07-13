@@ -51,77 +51,13 @@ if (isset($_GET['id_fournisseur'])) {
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Modifier le fournisseur</title>
-            <link rel="stylesheet" type="text/css" href="style.css">
-            <style>
-                body{
-                       /* background: url("imagelogo.jpg");*/
-                        background-repeat: no-repeat;
-                        background-color:red;
-		                background-size: cover;
-                       /* width:1000px;
-                        height:200px;*/
-                }
-                .form-container{
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        margin-top: 5px;
-                    
-
-                   }
-                form {
-                        background-color: #8f9b93;
-                        border-radius: 5px;
-                        box-shadow: 0 0 10px rgba(33, 9, 172, 0.3);
-                        padding: 50px;
-                        width: 300px;
-                        margin-top: 15px;
-                        margin-right:500px;
-                   }  
-                   input[type="text"],
-                   input[type="number"],
-                   input[type="date"] 
-                  {
-                        width: 100%;
-                        padding: 10px;
-                        border: 1px solid #ccc;
-                        border-radius: 3px;
-                        margin-bottom: 15px;
-                    }
-                    input[type="submit"] {
-                        background-color: #4CAF50;
-                        color: #fff;
-                        border: none;
-                        padding: 10px;
-                        border-radius: 3px;
-                        cursor: pointer;
-                    }
-                    .container {
-                    display: flex;
-                    align-items: right;
-                    }
-
-                   .image-container {
-                        flex:2;
-                        max-width: 30%;
-                        width:50px;
-                        
-                    }
-
-                   .form-container {
-                       flex: 1;
-                       padding-right:50px; /* Espacement entre l'image et le formulaire */
-                       margin: 5px;
-                     }
-                     
-            </style>
+            <link rel="stylesheet" type="text/css" href="../style/fournisseur.css">
+          
         </head>
 
         <body>
             <div class="form-container">
-                <div class="image-container">
-            
-                </div>
+
                 <form method="post" action="modifier.php?id_fournisseur=<?php echo $id_fournisseur; ?>">
                     <label for="nom_fournisseur">Nom du fournisseur:</label>
                     <input type="text" name="nom_fournisseur" value="<?php echo $row['nom_fournisseur']; ?>" required><br>
@@ -135,7 +71,7 @@ if (isset($_GET['id_fournisseur'])) {
         </body>
 
         </html>
-
+ 
     <?php
     } else {
         echo "Aucun client trouvé avec l'id: " . $id_fournisseur;
