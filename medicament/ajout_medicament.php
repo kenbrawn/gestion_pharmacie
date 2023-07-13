@@ -19,7 +19,9 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $limit = 3; // Nombre d'éléments par page
 $offset = ($page - 1) * $limit; // Calcul de l'offset
 
-$sql = "SELECT * FROM medicament LIMIT $limit OFFSET $offset";
+$sql = "SELECT * FROM medicament
+        LIMIT $limit OFFSET $offset";
+
 $result = $conn->query($sql);
 
 $total_rows = $result->num_rows; // Nombre total d'éléments
@@ -37,12 +39,13 @@ if ($result->num_rows > 0) {
 
     // Tableau des médicaments
     echo "<table border=1>";
-    echo "<tr><th>Code</th><th>Nom du médicament</th><th>Désignation</th><th>Prix du médicament</th><th>Quantité des stocks</th><th>Date d'ajout</th><th>Date de péremption</th><th>Supprimer</th><th>Modifier</th></tr>";
+    echo "<tr><th>Code</th><th>Nom du médicament</th><th>Désignation</th><th>Nom fournisseur</th><th>Prix du médicament</th><th>Quantité des stocks</th><th>Date d'ajout</th><th>Date de péremption</th><th>Supprimer</th><th>Modifier</th></tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>".$row['code']."</td>";
         echo "<td>" . $row['nom_medicament'] . "</td>";
         echo "<td>" . $row['designation'] . "</td>";
+        echo "<td>" . $row['nom_fournisseur'] . "</td>";
         echo "<td>" . $row['prix_medicament'] . "</td>";
         echo "<td>" . $row['quantite_stock'] . "</td>";
         echo "<td>" . $row['date_ajout'] . "</td>";
@@ -85,13 +88,9 @@ $conn->close();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../style/medicament.css">
 </head>
-<body style="background:white;">
-    <div class="form-container hidden" id="ajoutmedicament-form">
-        <form method="post" action="">
-            <!-- Vos champs de formulaire ici -->
-        </form>
-    </div>
+<body>
+
 </body>
 </html>
