@@ -47,7 +47,7 @@ if (isset($_POST['search_fournisseur'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" class="css">
+    <link rel="stylesheet" href="../style/fournisseur.css" class="css">
 </head>
 <body>
     
