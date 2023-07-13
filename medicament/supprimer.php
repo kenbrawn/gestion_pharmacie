@@ -51,6 +51,7 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row['prix_medicament'] . "</td>";
         echo "<td>" . $row['quantite_stock'] . "</td>";
         echo "<td>" . $row['date_ajout'] . "</td>";
+        echo "<td>" . $row['nom_fournisseur'] . "</td>";
         echo "<td>" . $row['date_peremption'] . "</td>";
         echo "<td><a href='modifier.php?code=".$row['code']."'>Modifier</a></td>";
         echo "<td><a href='supprimer.php?code=".$row['code']."'>Supprimer</a></td>";
