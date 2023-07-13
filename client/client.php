@@ -44,9 +44,12 @@ if ($conn->connect_error) {
 }
 $page = isset($_GET['page']) ? $_GET['page'] : 1; 
 // Récupère le numéro de page à partir de la requête GET, sinon utilise la page 1 par défaut
-$limit = 2; // Nombre d'éléments par page
+$limit = 3; // Nombre d'éléments par page
 $offset = ($page - 1) * $limit; 
-$sql = "SELECT * FROM client";
+$sql = "SELECT * 
+FROM client LIMIT $limit OFFSET $offset";
+
+ 
 $result = $conn->query($sql);
 
 $total_rows = $result->num_rows; // Nombre total d'éléments
@@ -60,7 +63,7 @@ if ($result->num_rows > 0) {
 </form>';
     echo "<table border=1>";
     echo "<tr><th>ID</th><th>Nom du client</th><th>Adresse</th><th>Téléphone</th><th>Modifier</th><th>Supprimer</th></tr>";
-    while ($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) { 
         echo "<tr>";
         echo "<td>" . $row['id_client'] . "</td>";
         echo "<td>" . $row['nom_client'] . "</td>";
@@ -84,13 +87,7 @@ if ($result->num_rows > 0) {
       echo '</div>';
       
 
-    echo' <footer>
-    <div class="">
-        <div class="float-start">
-            <h3 id="signature">juin-juillet 2023 &copy; ANDRIANAINA TSIRY KENNIA</h3>
-        </div>
-    </div>
-</footer>';
+   
 }
  else {
          echo "Aucun client enregistré dans la base de données.";
@@ -106,10 +103,16 @@ $conn->close();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" class="css">
+    <link rel="stylesheet" href="../style/client.css" class="css">
 </head>
 <body>
-    
+  <footer>
+    <div class="footer">
+        <div class="float-start">
+            <h3 id="signature">juin-juillet 2023 &copy; ANDRIANAINA TSIRY KENNIA</h3>
+        </div>
+    </div>
+</footer>;   
 </body>
 </html>
 
