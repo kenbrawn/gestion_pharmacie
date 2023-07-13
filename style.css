@@ -76,11 +76,11 @@ h2 {
 	text-align: center;
 	margin-bottom: 20px;
 	background-color: black;
-				color:rgb(180, 213, 15);
-				font-style: italic;
-				font-weight: 700;
-				margin-top: 30px;
-				margin-bottom: 30px;
+	color:rgb(180, 213, 15);
+	font-style: italic;
+	font-weight: 700;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 label {
@@ -129,19 +129,15 @@ input[type="mdp_utilisateur"] {
 	background: #e3d50c;
 	text-align: center;
 }
-.captcha{
-	width:50%;
-	background: #e3d50c;
-	text-align: center;
-	text-transform: uppercase;
-}
+
 footer{
-	background-color: #4CAF50;
+	background-color: #474b47;
 	color:green;
 	font-style: italic;
 	font-weight: 700;
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-left: 150px;
+	margin-right: 350px;
+	margin-bottom: 3px;
 	
 	
 }
@@ -150,3 +146,32 @@ footer{
 	margin-left: 50px;
 	margin-right: 20px;
 }
+
+ #art-1 p {
+        margin-top: 2px;
+        background-color: orange;
+       /* color: rgb(148, 151, 148);*/
+		color: white;
+}
+#art-2 p {
+	margin-top: auto;
+	background-color: rgb(53, 119, 9);
+	color: white;
+}
+#art-3 p {
+	margin-top: auto;
+	background-color: rgb(246, 76, 9);
+	color: white;
+}
+#line p{
+	        text-transform: uppercase ;
+			text-indent: 0cqmin;
+	        color:rgb(165, 199, 13);
+			
+			font-style: italic;
+			font-style:bold;
+			margin-left :30px;
+			font-weight: 1000;
+			margin-top: 30px;
+}
+
