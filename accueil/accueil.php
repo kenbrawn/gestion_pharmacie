@@ -49,7 +49,7 @@ $nomUtilisateur = $_SESSION['nom_utilisateur'];
             <label for="telephone">telephone:</label>
 			<input type="number" id="telephone" name="telephone" required><br><br>
 			
-			<input type="submit" value="enregistrer"><br><br>
+			<input type="submit" value="valider"><br><br>
 			<a href="../client/client.php" class="voir_liste" style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a>
 		</form>
         <div >
@@ -70,14 +70,18 @@ $nomUtilisateur = $_SESSION['nom_utilisateur'];
 			<input type="text" id="designation" name="designation" required>
             <label for="prix_medicament">Prix du medicament :</label>
 			<input type="int" id="prix_medicament" name="prix_medicament" required>
+			<label for="nom_fournisseur">Nom fournisseur :</label>
+			<input type="text" id="nom_fournisseur" name="nom_fournisseur">
 			<label for="quantite_stock">Quantite des stocks :</label>
-			<input type="int" id="quantite_stock" name="quantite_stock" required>
+			<input type="int" id="quantite_stock" name="quantite_stock" >
 			<label for="date_ajout">Date d'ajout :</label>
 			<input type="date" id="date_ajout" name="date_ajout" required>
 			<label for="date_peremption">Date de peremption :</label>
-			<input type="date" id="date_peremption" name="date_peremption" required>
-			<input type="submit" value="Register">
-			<a href="../medicament/ajout_medicament.php" style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a>
+			<input type="date" id="date_peremption" name="date_peremption" >
+			<input type="submit" value="valider">
+			<a href="../medicament/ajout_medicament.php" style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a><br><br>
+			<a href="../medicament/perimes.php" style="color:white;font-size: 15px;background-color:green;margin-bottom:30px">medicaments perimes aujourd'hui</a><br<<br><br><br>
+			<a href="../medicament/enstock.php" style="color:white;font-size: 15px;background-color:blue;margin-bottom:100px">medicaments  stock</a>
 		</form>
 	</div>
   <div class="form-container hidden" id="ajoutfournisseur-form">
@@ -90,7 +94,7 @@ $nomUtilisateur = $_SESSION['nom_utilisateur'];
     		<label for="date_creation">Date de creation :</label>
       		<input type="date" id="date_creation" name="date_creation" required><br><br>
   
-			<input type="submit" value="enregistrer"><br><br>
+			<input type="submit" value="valider"><br><br>
 			<a href="../fournisseurs/fournisseur.php"  style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a>
 		</form>
 	</div>
@@ -103,7 +107,7 @@ $nomUtilisateur = $_SESSION['nom_utilisateur'];
 			<input type="int" name="prix_unitaire"><br>
 			<label for="quantite_vendu">Quantite vendu:</label>
 			<input type="int" name="quantite_vendu"><br><br>
-			<input type="submit" value="Register"><br><br>
+			<input type="submit" value="valider"><br><br>
 			<a href="../vente/vente.php" style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a>
 		</form>
 	</div>
@@ -120,7 +124,7 @@ $nomUtilisateur = $_SESSION['nom_utilisateur'];
 			<input type="int" id="quantite_cmd" name="quantite_cmd" required>
 			<label for="prix_vente">Prix de vente :</label>
 			<input type="int" id="prix_vente" name="prix_vente" required>
-			<input type="submit" value="Register"><br><br>
+			<input type="submit" value="valider"><br><br>
 			<a href="../commande/commande.php" style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a>
 		</form>
 	</div>
@@ -200,7 +204,7 @@ function logout() {
   sessionStorage.clear();
 
   // Rediriger l'utilisateur vers la page de connexion (ou une autre page de votre choix)
-  window.location.href = "../formulaire/inscription.php";
+  window.location.href = "../index.php";
   exit;
 }
 
