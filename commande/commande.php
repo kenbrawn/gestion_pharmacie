@@ -6,15 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $quantite_cmd = $_POST['quantite_cmd'];
     $prix_vente = $_POST['prix_vente'];
     // Connexion à la base de données
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pharmacie";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Échec de la connexion à la base de données : " . $conn->connect_error);
-    }
+    include("../connection/connection.php");
     
     // Insertion des informations dans la base de données
     $sql = "INSERT INTO commande(date_commande, idclient,medicament_cmd,quantite_cmd,prix_vente)
@@ -30,21 +22,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Afficher tous les commandes enregistrés dans la base de données
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pharmacie";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Échec de la connexion à la base de données : " . $conn->connect_error);
-}
+include("../connection/connection.php");
 $page = isset($_GET['page']) ? $_GET['page'] : 1; 
 // Récupère le numéro de page à partir de la requête GET, sinon utilise la page 1 par défaut
-$limit = 2; // Nombre d'éléments par page
+$limit =3; // Nombre d'éléments par page
 $offset = ($page - 1) * $limit;
 $sql = "SELECT *
-FROM commande JOIN medicament ON medicament.nom_medicament=commande.medicament_cmd   LIMIT $limit OFFSET $offset";
+FROM commande JOIN medicament ON medicament.nom_medicament=commande.medicament_cmd /*JOIN client ON client.id_client=commande.idclient */ LIMIT $limit OFFSET $offset";
 
 $result = $conn->query($sql);
 
@@ -55,16 +39,18 @@ if ($result->num_rows > 0) {
     <button type="submit">Rechercher</button>
 </form>';
     echo "<table border=1>";
-    echo "<tr><th>ID</th><th>date de commande</th><th>id client</th><th>medicament commander</th><th>Designation</th><th>Quantite commander</th><th>prix de vente</th><th>modifier</th><th>supprimer</th></tr>";
+    echo "<tr><th>ID</th><th>date de commande</th><th>id client</th><th>Nom client</th><th>medicament commander</th><th>Designation</th><th>Quantite commander</th><th>prix de vente</th><th>modifier</th><th>supprimer</th></tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row['id_cmd'] . "</td>";
         echo "<td>" . $row['date_commande'] . "</td>";
-        echo "<td>" . $row['idclient'] . "</td>";      
+        echo "<td>" . $row['idclient'] . "</td>";   
+    //    echo "<td>" . $row['nom_client'] . "</td>";    
         echo "<td>" . $row['medicament_cmd'] . "</td>";
         echo "<td>" . $row['designation'] . "</td>";
         echo "<td>" . $row['quantite_cmd'] . "</td>";
         echo "<td>" . $row['prix_vente'] . "</td>";
+       
         echo "<td><a href='modifier.php?id_cmd=".$row['id_cmd']."'>Modifier</a></td>";
         echo "<td><a href='supprimer.php?id_cmd=".$row['id_cmd']."'>Supprimer</a></td>";
         echo "</tr>";
