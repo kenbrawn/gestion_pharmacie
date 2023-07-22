@@ -3,15 +3,7 @@
 if (isset($_POST['search_commande'])) {
     $search_term = $_POST['search_commande'];
     // Connexion à la base de données
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pharmacie";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Échec de la connexion à la base de données : " . $conn->connect_error);
-    }
+    include("../connection/connection.php");
     
     // Requête de recherche des médicaments correspondants
     $sql = "SELECT * FROM commande WHERE medicament_cmd LIKE '%$search_term%' OR idclient LIKE '%$search_term%' OR date_commande LIKE '%$search_term%'";
