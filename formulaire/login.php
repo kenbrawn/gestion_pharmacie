@@ -1,17 +1,5 @@
 <?php
-// Connexion à la base de données
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pharmacie";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Vérification de la connexion
-if (!$conn) {
-    die("Connexion échouée: " . mysqli_connect_error());
-}
-
+include("../connection/connection.php");
 // Démarrage de la session
 session_start();
 
@@ -25,13 +13,13 @@ $result = mysqli_query($conn, $sql);
 
 // Vérification de l'existence de l'utilisateur dans la base de données
 if (mysqli_num_rows($result) > 0) {
-    // L'utilisateur est authentifié avec succès
-    $_SESSION['username'] = $nom; // Sauvegarde du nom d'utilisateur dans la session
+
+    $_SESSION['nom_utilisateur'] = $nom;
     header("Location: ../accueil/accueil.php");
 } else {
     // Échec de l'authentification
     echo "Nom d'utilisateur ou mot de passe incorrect";
-    header("Location: inscription.php");
+    header("refresh:3; url=../index.php");
 }
 
 mysqli_close($conn);
