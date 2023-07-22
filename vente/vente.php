@@ -5,16 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $quantite_vendu = $_POST['quantite_vendu'];
     
     // Connexion à la base de données
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pharmacie";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Échec de la connexion à la base de données : " . $conn->connect_error);
-    }
-    
+    include("../connection/connection.php");
     // Insertion des informations dans la base de données
     $sql = "INSERT INTO vente(nom_medicament, prix_unitaire,quantite_vendu)
             VALUES ('$nom_medicament', '$prix_unitaire', '$quantite_vendu')";
@@ -29,20 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Afficher tous les medicaments vendu enregistrés dans la base de données
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pharmacie";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Échec de la connexion à la base de données : " . $conn->connect_error);
-}
+include("../connection/connection.php");
 $page = isset($_GET['page']) ? $_GET['page'] : 1; 
 // Récupère le numéro de page à partir de la requête GET, sinon utilise la page 1 par défaut
 $limit = 2; // Nombre d'éléments par page
 $offset = ($page - 1) * $limit;
-$sql = "SELECT * FROM vente LIMIT $limit OFFSET $offset";
+$sql = "SELECT code_vente,nom_medicament,prix_unitaire,quantite_vendu,(prix_unitaire * quantite_vendu) AS somme_payer FROM vente LIMIT $limit OFFSET $offset";
 $result = $conn->query($sql);
 
 $total_rows = $result->num_rows; // Nombre total d'éléments
@@ -52,13 +35,14 @@ if ($result->num_rows > 0) {
     <button type="submit">Rechercher</button>
 </form>';
     echo "<table border=1>";
-    echo "<tr><th>code</th><th>Nom medicament</th><th>prix unitaire</th><th>Quantite vendu</th><th>modifier</th><th>supprimer</th></tr>";
+    echo "<tr><th>code</th><th>Nom medicament</th><th>prix unitaire</th><th>Quantite vendu</th><th>Somme a payer</th><th>modifier</th><th>supprimer</th></tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row['code_vente'] . "</td>";
         echo "<td>" . $row['nom_medicament'] . "</td>";
         echo "<td>" . $row['prix_unitaire'] . "</td>";
         echo "<td>" . $row['quantite_vendu'] . "</td>";
+        echo "<td>" . $row['somme_payer'] . "</td>";
         echo "<td><a href='modifier.php?code_vente=".$row['code_vente']."'>Modifier</a></td>";
         echo "<td><a href='supprimer.php?code_vente=".$row['code_vente']."'>Supprimer</a></td>";
         echo "</tr>";
