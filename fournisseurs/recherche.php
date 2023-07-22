@@ -4,15 +4,7 @@
 if (isset($_POST['search_fournisseur'])) {
     $search_term = $_POST['search_fournisseur'];
     // Connexion à la base de données
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pharmacie";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Échec de la connexion à la base de données : " . $conn->connect_error);
-    }
+    include("../connection/connection.php");
     
     // Requête de recherche des fournisseurs correspondants
     $sql = "SELECT * FROM fournisseur WHERE nom_fournisseur LIKE '%$search_term%' OR type_fournisseur LIKE '%$search_term%'";
