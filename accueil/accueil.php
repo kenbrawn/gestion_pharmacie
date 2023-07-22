@@ -1,220 +1,143 @@
-<?php 
-
-session_start();/*
-$imagePath = "/pharma.jpg";
-
-// Récupération des données du formulaire de connexion
-// Supposons que vous ayez stocké le chemin de l'image et le nom de l'utilisateur dans des variables de session lors de la connexion.
-$imagePath = $_SESSION['pharma.jpg'];
-$nomUtilisateur = $_SESSION['nom_utilisateur'];
-
-// ... Autres traitements ...
-// Vous pouvez maintenant inclure le code HTML ci-dessus pour afficher l'image et le nom de l'utilisateur.
-  */?>
 
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>mon page d'accueil </title>
+	<title>login de mon page </title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body >
 <header>
-        <h2>Bienvenu au page d'accueil gestion de pharmacie </h2>
+        <h2 style=" background-color: green;color:rgb(180, 213, 15);
+			font-style: italic;
+			font-weight: 1000;	font-family: Arial, Helvetica, sans-serif;
+	text-shadow: 1.5px 1.5px 1.5px #333333;margin-right:310px;margin-left:310px;" >Site web gestion de pharmacie </h2>
 </header>
 	<nav>
 		<ul>
-		
-			<li><a href="#" onclick="showAjoutclientForm()">Client</a></li>
-			<li><a href="#" onclick="showAjoutmedicamentForm()">Medicaments</a></li>
-			<li><a href="#" onclick="showAjoutfournisseurForm()">Ajout fournisseur</a></li>
-      		<li><a href="#" onclick="showVenteForm()">Vente</a></li>
-			<li><a href="#" onclick="showCommandeForm()">Commande client</a></li>
-			<li><a href="#" onclick="logout()">Deconnexion</a></li>
+			<li><a href="#" onclick="showLoginForm()">Login</a></li>
+			<li><a href="#" onclick ="showRegisterForm()">Register</a></li>
 		</ul>
 	</nav>
-    <!-- <div class="profil">
-       <img src="profil.png" alt="Photo de profil" class="profile-image">
-		<img src="<?php echo $imagePath; ?>" alt="Image de profil" class="profile-image">
-        <p><?php echo $nomUtilisateur; ?></p>
-    </div>-->
-	<div class="form-container hidden" id="ajoutclient-form">
-		<form action="../client/client.php" method="post">
-			<h2>Client</h2>
-			<label for="nom_client">Nom du client:</label>
-			<input type="text" id="nom_client" name="nom_client" required>
-            <label for="adresse_client">adresse:</label>
-			<input type="text" id="adresse_client" name="adresse_client" required>
-            <label for="telephone">telephone:</label>
-			<input type="number" id="telephone" name="telephone" required><br><br>
-			
-			<input type="submit" value="valider"><br><br>
-			<a href="../client/client.php" class="voir_liste" style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a>
-		</form>
-        <div >
+	
+	<div class="form-container hidden" id="login-form">
+		<form action="./formulaire/login.php" method="post">
+			<h2>Login</h2>
+			<label for="nom_utilisateur">Nom d'utilisateur:</label>
+			<input type="text" id="nom_utilisateur" name="nom_utilisateur" required>
+			<label for="password">Mot de passe:</label>
+			<div class="password-input-container">
+            <input type="password" id="password" name="mdp_utilisateur" required>
+            <span class="password-toggle" onclick="togglePasswordVisibility()">&#x1F441;</span>
+								
+			<div >	
+				<input type="submit"  id="login" value="Se connecter">
+			</div>
+		</form> 
 
-        <!-- Description de votre site web ici -->
- 
-
-        </div>
+               </div>
+      
 
 	</div>
 
-	<div class="form-container hidden" id="ajoutmedicament-form">
-		<form method="post" action ="../medicament/ajout_medicament.php">
-			<h2>Ajout Medicaments</h2>
-            <label for="nom_medicament">Nom de medicament:</label>
-			<input type="text" id="nom_medicament" name="nom_medicament" required>
-			<label for="designation">Designation:</label>
-			<input type="text" id="designation" name="designation" required>
-            <label for="prix_medicament">Prix du medicament :</label>
-			<input type="int" id="prix_medicament" name="prix_medicament" required>
-			<label for="nom_fournisseur">Nom fournisseur :</label>
-			<input type="text" id="nom_fournisseur" name="nom_fournisseur">
-			<label for="quantite_stock">Quantite des stocks :</label>
-			<input type="int" id="quantite_stock" name="quantite_stock" >
-			<label for="date_ajout">Date d'ajout :</label>
-			<input type="date" id="date_ajout" name="date_ajout" required>
-			<label for="date_peremption">Date de peremption :</label>
-			<input type="date" id="date_peremption" name="date_peremption" >
-			<input type="submit" value="valider">
-			<a href="../medicament/ajout_medicament.php" style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a><br><br>
-			<a href="../medicament/perimes.php" style="color:white;font-size: 15px;background-color:green;margin-bottom:30px">medicaments perimes aujourd'hui</a><br<<br><br><br>
-			<a href="../medicament/enstock.php" style="color:white;font-size: 15px;background-color:blue;margin-bottom:100px">medicaments  stock</a>
+	<div class="form-container hidden" id="register-form">
+		<form method="post" action="./formulaire/enregistrement.php">
+			<h2>enregistrer</h2>
+			<label for="new-username">Nom d'utilisateur:</label>
+			<input type="text" id="new-username" name="nom_utilisateur" required>
+			<label for="new-password">Mot de passe:</label>
+			<input type="password" id="new-password" name="mdp_utilisateur" required>
+			<label for="confirm-password">Confirmer votre mot de passe:</label>
+			<input type="password" id="confirm_password" name="confirm_password" required>
+			<label for="user-type">Type d'utilisateur:</label>
+			<select id="user-type" name="type_utilisateur" required>
+				<option value="utilisateur">Utilisateur</option>
+				<option value="admin">Admin</option>
+				
+			</select>
+			<label for="email">Email:</label>
+      		<input type="email" id="email" name="email" required><br>
+			<input type="submit" value="enregistrer">
 		</form>
 	</div>
-  <div class="form-container hidden" id="ajoutfournisseur-form">
-		<form method="post" action="../fournisseurs/fournisseur.php">
-			<h2>Ajout Fournisseur</h2>
-			<label for="nom_fournisseur">Nom du fournisseur:</label>
-			<input type="text" id="nom_fournisseur" name="nom_fournisseur" required>
-      		<label for="type_fournisseur">Type de fournisseur:</label>
-			<input type="text" id="type_fournisseur" name="type_fournisseur" required>
-    		<label for="date_creation">Date de creation :</label>
-      		<input type="date" id="date_creation" name="date_creation" required><br><br>
-  
-			<input type="submit" value="valider"><br><br>
-			<a href="../fournisseurs/fournisseur.php"  style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a>
-		</form>
-	</div>
-  <div class="form-container hidden" id="vente-form">
-		<form method="post" action="../vente/vente.php">
-			<h2>Vente</h2>
-			<label for="new-username">Nom de  medicament:</label>
-			<input type="text" id="nom_medicament" name="nom_medicament" required>
-            <label for="prix_unitaire">Prix  unitaire:</label>
-			<input type="int" name="prix_unitaire"><br>
-			<label for="quantite_vendu">Quantite vendu:</label>
-			<input type="int" name="quantite_vendu"><br><br>
-			<input type="submit" value="valider"><br><br>
-			<a href="../vente/vente.php" style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a>
-		</form>
-	</div>
-	<div class="form-container hidden" id="commande-form">
-		<form method="post" action ="../commande/commande.php">
-			<h2>Commande de client</h2>
-            <label for="date_commande">Date de commande:</label>
-			<input type="date" id="date_commande" name="date_commande" required>
-			<label for="idclient">Id client:</label>
-			<input type="int" id="idclient" name="idclient" required>
-			<label for="medicament_cmd">Medicament commander:</label>
-			<input type="text" id="medicament_cmd" name="medicament_cmd" required>
-            <label for="quantite_cmd">Quantite de commande :</label>
-			<input type="int" id="quantite_cmd" name="quantite_cmd" required>
-			<label for="prix_vente">Prix de vente :</label>
-			<input type="int" id="prix_vente" name="prix_vente" required>
-			<input type="submit" value="valider"><br><br>
-			<a href="../commande/commande.php" style="color:green;font-size: 15px;background-color:red;margin-bottom:10px">Voir liste</a>
-		</form>
-	</div>
+
 	<script>
-       document.getElementById("ajoutclient-form").classList.remove("hidden");
-		  function showAjoutclientForm() {
-			var ajoutclientForm = document.getElementById("ajoutclient-form");
-			var commandeForm = document.getElementById("commande-form");
-			var ajoutmedicamentForm = document.getElementById("ajoutmedicament-form");
-            var ajoutfournisseurForm = document.getElementById("ajoutfournisseur-form");
-            var venteForm = document.getElementById("vente-form");
-			ajoutclientForm.classList.remove("hidden"); 
-			ajoutmedicamentForm.classList.add("hidden");
-            ajoutfournisseurForm.classList.add("hidden");
-            venteForm.classList.add("hidden");
-			commandeForm.classList.add("hidden");
+       // document.getElementById("login-form").classList.remove("hidden");
+		function showLoginForm() {
+			var loginForm = document.getElementById("login-form");
+			var registerForm = document.getElementById("register-form");
+ 			loginForm.classList.remove("hidden"); 
+			registerForm.classList.add("hidden");
 		}
 
-		function showAjoutmedicamentForm() {
-            var commandeForm = document.getElementById("commande-form");
-            var ajoutclientForm = document.getElementById("ajoutclient-form");
-			var ajoutmedicamentForm = document.getElementById("ajoutmedicament-form");
-            var ajoutfournisseurForm = document.getElementById("ajoutfournisseur-form");
-            var venteForm = document.getElementById("vente-form");
-			ajoutclientForm.classList.add("hidden"); 
-			ajoutmedicamentForm.classList.remove("hidden");
-            ajoutfournisseurForm.classList.add("hidden");
-            venteForm.classList.add("hidden");
-			commandeForm.classList.add("hidden");
-
+		function showRegisterForm() {
+			var loginForm = document.getElementById("login-form");
+			var registerForm = document.getElementById("register-form");
+			loginForm.classList.add("hidden");
+			registerForm.classList.remove("hidden");
 		}
-    function showAjoutfournisseurForm() {
-var commandeForm = document.getElementById("commande-form");
-var ajoutclientForm = document.getElementById("ajoutclient-form");
-var ajoutmedicamentForm = document.getElementById("ajoutmedicament-form");
-var ajoutfournisseurForm = document.getElementById("ajoutfournisseur-form");
-var venteForm = document.getElementById("vente-form");
-ajoutclientForm.classList.add("hidden"); 
-ajoutmedicamentForm.classList.add("hidden");
-ajoutfournisseurForm.classList.remove("hidden");
-venteForm.classList.add("hidden");
-commandeForm.classList.add("hidden");
+		
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var passwordToggle = document.querySelector(".password-toggle");
 
-}
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                passwordToggle.innerHTML = "&#x1F443;"; // Eye icon open
+            } else {
+                passwordInput.type = "password";
+                passwordToggle.innerHTML = "&#x1F441;"; // Eye icon closed
+            }
+        }
+		
+	</script> 
 
-function showVenteForm() {
-var commandeForm = document.getElementById("commande-form");
-var ajoutclientForm = document.getElementById("ajoutclient-form");
-var ajoutmedicamentForm = document.getElementById("ajoutmedicament-form");
-var ajoutfournisseurForm = document.getElementById("ajoutfournisseur-form");
-var venteForm = document.getElementById("vente-form");
-ajoutclientForm.classList.add("hidden"); 
-ajoutmedicamentForm.classList.add("hidden");
-ajoutfournisseurForm.classList.add("hidden");
-venteForm.classList.remove("hidden");
-commandeForm.classList.add("hidden");
+<section>
+	<div id="line">
+		<div class="dline">
+		<p >simplifiez votre taches avec notre application<br> gestion de pharmacie en ligne </p>
+		</div>
+	</div>
+	<div id="derniers-articles" style="display: flex;">
+	<div id="derniers-articles" style="display: flex;">
+    <article id="art-1" style="flex: 1;margin-top:50px; text-align: center; display: flex; flex-direction: column; justify-content: flex-end;background:orange;">
+        <h1 style="background-color: black; color: rgb(180, 213, 15);margin-top:2px; font-style: italic; font-weight: 300; margin-top: 30px; margin-bottom: 1px;">Description 1</h1>
+        <img src="./accueil/fanafody.webp" alt="" style="width:300px;height:200px;margin:20px" />
+   
+        <p ><i>En vue de faciliter une accessibilité économique des médicaments essentiels à la population, 
+l'accès aux médicaments essentiels de qualité a été reconnu dans plusieurs engagements internationaux comme un Droit Humain qui relève de l'éthique, de l'équité et de la justice sociale</i></p>
+    </article>
+    <article id="art-2" style="flex: 1;margin-top:50px; text-align: center; display: flex; flex-direction: column; justify-content: flex-end;background:green;">
+        <h1 style="background-color: #74c50a; color: white; font-style: italic; font-weight: 300; margin-top: 30px; margin-bottom: 1px;">Description 2</h1>
+        <img src="./accueil/pharmamaison.jpg" alt="" style="width:300px;height:200px;margin:20px" />
+        <p><i>L'analyse et le traitement des données ayant facilité la révision de la Liste  des Médicaments Essentiels qui répondent aux besoins prioritaires de santé d'une population
+		. La présente liste comporte de groupes pharmaco-thérapeutiques et  médicaments qui répondent aux pathologies les plus courantes du pays.</i></p>
+    </article>
+    <article id="art-3" style="flex: 1; margin-top:50px; text-align: center; display: flex; flex-direction: column; justify-content: flex-end;background:red;">
+        <h1 style="background-color: #e00e0e; color: rgb(180, 213, 15); font-style: italic; font-weight: 300; margin-top: 30px; margin-bottom: 1px;">Description 3</h1>
+        <img src="./accueil/admin.jpg" alt="" style="width:300px;height:200px;margin:20px" />
+       <p><i>Cet outil de référence prend en compte les trois niveaux de la pyramide sanitaire et demeure ainsi incontournable pour tout professionnel de santé, tout industriel et importateur soucieux de faciliter à la clientèle des institutions de santé, une accessibilité économique, optimale à des médicaments de qualité, de façon rationnelle.</i> </p>
+    </article>
+</div>
 
-}
+</section>
+		
+	   <footer>
 
-function showCommandeForm() {
-	        var commandeForm = document.getElementById("commande-form");
-			var ajoutclientForm = document.getElementById("ajoutclient-form");
-			var ajoutmedicamentForm = document.getElementById("ajoutmedicament-form");
-            var ajoutfournisseurForm = document.getElementById("ajoutfournisseur-form");
-            var venteForm = document.getElementById("vente-form");
-			commandeForm.classList.remove("hidden"); 
-			ajoutclientForm.classList.add("hidden"); 
-			ajoutmedicamentForm.classList.add("hidden");
-            ajoutfournisseurForm.classList.add("hidden");
-            venteForm.classList.add("hidden");
-		}
-function logout() {
-  // Effacer les cookies si nécessaire
-  document.cookie = "nom_du_cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-  
-  // Supprimer les données de la session stockées localement
-  sessionStorage.clear();
-
-  // Rediriger l'utilisateur vers la page de connexion (ou une autre page de votre choix)
-  window.location.href = "../index.php";
-  exit;
-}
-
-	</script>
-	            <footer>
-                <div class="">
-                    <div class="float-start">
+				<div class="xx">
+				<h3>Contact Us:</h3>
+				<p>Antananarivo-Madagascar<br>Ken brawny<br><br></p>
+				</div>
+				<div class="xz">
+				   <p>Telephone:0344217287<br>
+				     e-mail:karim6roben@gmail.com<br></p>
+				</div>
+				
+                 
+				<div class="float-start">
                         <h3 id="signature">juin-juillet 2023 &copy; ANDRIANAINA TSIRY KENNIA</h3>
-                    </div>
                 </div>
-            </footer>
+            
+	   </footer>
 </body>
 </html>
