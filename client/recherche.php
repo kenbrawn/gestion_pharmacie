@@ -3,16 +3,7 @@
 // Recherche de clients
 if (isset($_POST['search_client'])) {
     $search_term = $_POST['search_client'];
-    // Connexion à la base de données
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pharmacie";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Échec de la connexion à la base de données : " . $conn->connect_error);
-    }
+    include("../connection/connection.php");
     
     // Requête de recherche des clients correspondants
     $sql = "SELECT * FROM client WHERE nom_client LIKE '%$search_term%' OR adresse_client LIKE '%$search_term%'";
