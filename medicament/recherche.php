@@ -3,16 +3,7 @@
 if (isset($_POST['search_medicament'])) {
     $search_term = $_POST['search_medicament'];
     // Connexion à la base de données
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pharmacie";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Échec de la connexion à la base de données : " . $conn->connect_error);
-    }
-    
+    include("../connection/connection.php");
     // Requête de recherche des médicaments correspondants
     $sql = "SELECT * FROM medicament WHERE nom_medicament LIKE '%$search_term%' OR designation LIKE '%$search_term%'";
     $result = $conn->query($sql);
@@ -24,7 +15,7 @@ if (isset($_POST['search_medicament'])) {
         while ($row = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td>".$row['code']."</td>";
-            echo "<td>" . $row['nom_medicament'] . "</td>";
+            echo "<td>" . $row['nom_medicament'] . "</td>";  
             echo "<td>" . $row['designation'] . "</td>";
             echo "<td>" . $row['prix_medicament'] . "</td>";
             echo "<td>" . $row['quantite_stock'] . "</td>";
