@@ -4,15 +4,7 @@
 if (isset($_POST['search_vente'])) {
     $search_term = $_POST['search_vente'];
     // Connexion à la base de données
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pharmacie";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Échec de la connexion à la base de données : " . $conn->connect_error);
-    }
+    include("../connection/connection.php");
     
     // Requête de recherche des fournisseurs correspondants
     $sql = "SELECT * FROM vente WHERE nom_medicament LIKE '%$search_term%' OR prix_unitaire LIKE '%$search_term%'";
