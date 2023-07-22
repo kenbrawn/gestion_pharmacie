@@ -1,13 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pharmacie";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Échec de la connexion à la base de données : " . $conn->connect_error);
-}
+include("../connection/connection.php");
 
 if (isset($_GET['code_vente'])) {
     $code_vente = $_GET['code_vente'];
@@ -28,13 +20,7 @@ if (isset($_GET['code_vente'])) {
             echo "Erreur lors de la mise à jour des informations du client : " . $conn->error;
         }
     }
-    $conn->close();
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pharmacie";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    include("../connection/connection.php");
     // Récupérer les informations du médicament à modifier
     $sql = "SELECT * FROM vente WHERE code_vente = '$code_vente '";
     $result = $conn->query($sql);
