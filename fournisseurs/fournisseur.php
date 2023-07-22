@@ -5,15 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $date_creation = $_POST['date_creation'];
     
     // Connexion à la base de données
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pharmacie";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Échec de la connexion à la base de données : " . $conn->connect_error);
-    }
+    include("../connection/connection.php");
     
     // Insertion des informations dans la base de données
     $sql = "INSERT INTO fournisseur(nom_fournisseur, type_fournisseur,date_creation)
@@ -29,15 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Afficher tous les clients enregistrés dans la base de données
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pharmacie";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Échec de la connexion à la base de données : " . $conn->connect_error);
-}
+include("../connection/connection.php");
 $page = isset($_GET['page']) ? $_GET['page'] : 1; 
 // Récupère le numéro de page à partir de la requête GET, sinon utilise la page 1 par défaut
 $limit = 3; // Nombre d'éléments par page
