@@ -1,13 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pharmacie";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Échec de la connexion à la base de données : " . $conn->connect_error);
-}
+include("../connection/connection.php");
 
 if (isset($_GET['id_cmd'])) {
     $id_cmd = $_GET['id_cmd'];
@@ -23,7 +15,7 @@ if (isset($_GET['id_cmd'])) {
 
   
 
-       $sql = "UPDATE commande SET date_commande= '$date_commande', idclient = '$idclient', medicament_cmd = '$medicament_cmd',quantite_cmd='$quantite_cmd',prix_vente='$prix_vente' WHERE prix_vente = '$prix_vente'";
+       $sql = "UPDATE commande SET date_commande= '$date_commande', idclient = '$idclient', medicament_cmd = '$medicament_cmd',quantite_cmd='$quantite_cmd',prix_vente='$prix_vente' WHERE id_cmd = '$id_cmd'";
 
         if ($conn->query($sql) === TRUE) {
             echo "Les informations du client ont été mises à jour avec succès.";
@@ -32,15 +24,9 @@ if (isset($_GET['id_cmd'])) {
             echo "Erreur lors de la mise à jour des informations du client : " . $conn->error;
         }
     }
-    $conn->close();
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pharmacie";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    include("../connection/connection.php");
     // Récupérer les informations du  commande médicament à modifier
-    $sql = "SELECT * FROM commande  WHERE id_cmd = '$id_cmd' ORDER BY date_commande";
+    $sql = "SELECT * FROM commande  WHERE id_cmd = '$id_cmd'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
