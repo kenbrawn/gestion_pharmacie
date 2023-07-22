@@ -1,13 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pharmacie";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Échec de la connexion à la base de données : " . $conn->connect_error);
-}
+include("../connection/connection.php");
 
 // Vérifier si la clé 'id' existe dans $_GET
 if (isset($_GET['id_client'])) {
@@ -30,15 +22,7 @@ else {
 $conn->close();
 
 // Afficher tous les médicaments enregistrés dans la base de données
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pharmacie";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Échec de la connexion à la base de données : " . $conn->connect_error);
-}
+include("../connection/connection.php");
 
 $sql = "SELECT * FROM client";
 $result = $conn->query($sql);
