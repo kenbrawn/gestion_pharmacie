@@ -1,13 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pharmacie";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Échec de la connexion à la base de données : " . $conn->connect_error);
-}
+include("../connection/connection.php");
 
 if (isset($_GET['id_client'])) {
     $id_client = $_GET['id_client'];
@@ -16,10 +8,11 @@ if (isset($_GET['id_client'])) {
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $nom_client = $_POST['nom_client'];
         $adresse_client = $_POST['adresse_client'];
+        $medicament_acheter = $_POST['medicament_acheter'];
         $telephone = $_POST['telephone'];
    
 
-       $sql = "UPDATE client SET nom_client = '$nom_client', adresse_client = '$adresse_client', telephone = '$telephone' WHERE id_client = '$id_client'";
+       $sql = "UPDATE client SET nom_client = '$nom_client', adresse_client = '$adresse_client',medicament_acheter = '$medicament_acheter', telephone = '$telephone' WHERE id_client = '$id_client'";
 
         if ($conn->query($sql) === TRUE) {
             echo "Les informations du client ont été mises à jour avec succès.";
@@ -29,12 +22,8 @@ if (isset($_GET['id_client'])) {
         }
     }
     $conn->close();
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pharmacie";
+    include("../connection/connection.php");
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
     // Récupérer les informations du médicament à modifier
     $sql = "SELECT * FROM client WHERE id_client = '$id_client'";
     $result = $conn->query($sql);
@@ -64,6 +53,9 @@ if (isset($_GET['id_client'])) {
                     <input type="text" name="nom_client" value="<?php echo $row['nom_client']; ?>" required><br>
                     <label for="adresse_client">Adresse client:</label>
                     <input type="text" name="adresse_client" value="<?php echo $row['adresse_client']; ?>" required><br>
+                    <label for="medicament_acheter">medicament acheter:</label>
+                    <input type="text" name="medicament_acheter" value="<?php echo $row['medicament_acheter']; ?>"><br>
+                    
                     <label for="telephone">Telephone:</label>
                     <input type="number" step="0.01" name="telephone" value="<?php echo $row['telephone']; ?>" required><br>
                     <input type="submit" value="Modifier">
