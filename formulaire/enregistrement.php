@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Vérifier si les mots de passe correspondent
     if ($mdp_utilisateur === $confirm_Password) {
 
-   include("../connection/connection.php");
+        include("../connection/connection.php");
         session_start();
         $_SESSION['nom_utilisateur'] = $_POST['nom_utilisateur'];
 
@@ -18,8 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nom_utilisateur = mysqli_real_escape_string($conn, $nom_utilisateur);
         $mdp_utilisateur = mysqli_real_escape_string($conn, $mdp_utilisateur);
         $email = mysqli_real_escape_string($conn, $email);
-
-        
 
         // Vérifier si le nom d'utilisateur existe déjà dans la base de données
         $query = "SELECT * FROM utilisateur WHERE nom_utilisateur = '$nom_utilisateur'";
@@ -34,15 +32,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $message = "L'e-mail '$email' n'est pas valide. Veuillez entrer une adresse e-mail valide.";
             } else {
-                // Le nom d'utilisateur n'existe pas et l'e-mail est valide, effectuer l'enregistrement
-                $requete = "INSERT INTO utilisateur (nom_utilisateur, mdp_utilisateur, type_utilisateur, email) VALUES ('$nom_utilisateur', '$mdp_utilisateur', '$type_utilisateur', '$email')";
+                // Vérifier si l'e-mail existe déjà dans la base de données
+                $query = "SELECT * FROM utilisateur WHERE email = '$email'";
+                $result = mysqli_query($conn, $query);
 
-                if (mysqli_query($conn, $requete)) {
-                    $message = "L'utilisateur '$nom_utilisateur' a été enregistré avec succès!";
-                    // Redirection vers la page d'accueil après 3 secondes
-                    header("refresh:3; url=../accueil/accueil.php");
-                } else {
-                    $message = "Erreur lors de l'enregistrement de l'utilisateur: " . mysqli_error($conn);
+                if (mysqli_num_rows($result) > 0) {
+                    // L'e-mail existe déjà
+                   
+                    $message = "L'e-mail '$e-mail' existe déjà. Veuillez utiliser un autre e-mail.";
+                 // Retour vers la page de connexion après 3 secondes
+                 entête("rafraîchir : 3 ; url=../index.php");
+                } autre {
+                    // Le nom d'utilisateur n'existe pas et l'e-mail est valide, effectuer l'enregistrement
+                    $requete = "INSERT INTO utilisateur (nom_utilisateur, mdp_utilisateur, type_utilisateur, email) VALEURS ('$nom_utilisateur', '$mdp_utilisateur', '$type_utilisateur', '$e-mail')";
+
+                    si (mysqli_query($conn, $requete)) {
+                        $message = "L'utilisateur '$nom_utilisateur' a été enregistré avec succès!";
+                        // Redirection vers la page d'accueil après 3 secondes
+                        entête("rafraîchir : 3 ; url=../accueil/accueil.php");
+                    } autre {
+                        $message = "Erreur lors de l'enregistrement de l'utilisateur: " . mysqli_error($conn);
+                    }
                 }
             }
         }
@@ -58,15 +68,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Enregistrement d'un nouvel utilisateur</title>
-</head>
-<body>
+<directeur>
+    <titre>Enregistrement d'un nouvel utilisateur</titre>
+</directeur>
+<corps>
     <h1>Enregistrement d'un nouvel utilisateur</h1>
-    <?php if (isset($message)) { ?>
-        <div class="notification">
-            <p><?php echo $message; ?></p>
+    <?PHP si (isset($message)) { ?>
+        <div cours="notification">
+            <p><?PHP écho $message; ?></p>
         </div>
-    <?php } ?>
-</body>
+    <?PHP } ?>
+</corps>
 </html>
