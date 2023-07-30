@@ -21,7 +21,7 @@ table {
     background-color: #f20d0d;
   }
   body{
-  background:url('../accueil/modifiermedc.jpg');
+  background:url('../accueil/image.webp');
     background-position: center; 
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -32,7 +32,7 @@ table {
         font-size: 20px;
         font-style: italic;
     }
-.form-container{
+.conteneur de formulaire{
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -45,12 +45,12 @@ form {
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(33, 9, 172, 0.3);
       padding: 20px;
-      margin-right :1px;
+      marge droite :1px;
       width: 300px;
  }  
- input[type="text"],
- input[type="int"],
- input[type="date"] 
+ saisir[type="text"],
+ saisir[type="int"],
+ saisir[type="date"] 
 {
       width: 200px;
       padding: 10px;
@@ -58,34 +58,24 @@ form {
       border-radius: 3px;
       margin-bottom: 15px;
   }
-  input[type="submit"] {
-      background-color: #4CAF50;
-      color: #fff;
-      border: none;
-      padding: 10px;
-      border-radius: 3px;
-      cursor: pointer;
-  }
- /* .container {
-  display: flex;
-  align-items: right;
+  saisir[Taper="soumettre"] {
+      Plan couleur de l'arrière : #4CAF50;
+      couleur : #fff;
+      frontière: aucun;
+      rembourrage: 10pixels;
+      rayon de bordure: 3pixels;
+      le curseur: aiguille;
   }
 
- .image-container {
-      flex:2;
-      max-width: 30%;
-      width:50px;
-      
-  }/*
-  .form-container {
-    flex: 1;
-    padding-right:50px; 
-    margin: 5px;
-  }*/
     h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color:green;
-    font-style: italic;
+    aligner le texte: centre;
+    marge inférieure: 20pixels;
+    couleurs:verte;
+    le style de police: italique;
+  }
+  div un{
+    couleurs:blanche;
+    Plan couleur de l'arrière : #3019C1;
+    rembourrage: 5pixels;
   }
  
