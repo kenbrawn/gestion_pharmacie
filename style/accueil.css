@@ -1,47 +1,47 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+	margarine:1 ;
+	rembourrage: 0;
+	dimensionnement de la boîte: border-box;
 }
 
-body {
-       background: url('../accueil/parapharmacie.jpeg');
-		background-position: center; 
-		background-repeat: no-repeat;
-		background-size: cover;
+corps {
+       arrière-plan: URL('../accueil/parapharmacie.jpeg');
+		poste d'arrière-plan: centre; 
+		Répétition du fond: sans répétition;
+		d'arrière-plan: couverture;
     }
-.container {
-        display: flex;
+.destinataire {
+        afficher: fléchir;
       }
       
-.form {
-        flex: 1;
+.ancien {
+        fléchir: 1;
       }
       
 
 
-nav {
-	background-color: #f2f2f2;
-	padding: 10px;
+La navigation {
+	Plan couleur de l'arrière : #f2f2f2;
+	rembourrage: 10pixels;
 }
 
 ul {
-	list-style-type: none;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	type de style de liste: aucun;
+	afficher: fléchir;
+	justifier-contenu: centre;
+	aligner les éléments: centre;
 }
 
 li {
-	margin: 0 10px;
+	margarine: 0 10pixels;
 }
 
-a {
-	text-decoration: #0f82ca;
-	color: #f4540a;
-	padding: 10px 20px;
-	border-radius: 25px;
-	font-style: italic;
+ONU {
+	texte-décoration: #0f82ca;
+	couleur: #f4540a;
+	rembourrage: 10pixels 20pixels;
+	rayon de bordure: 25px;
+	le style de police: italic;
 
 }
 
