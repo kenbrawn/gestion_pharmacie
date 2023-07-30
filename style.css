@@ -1,32 +1,21 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+	marge: 0;
+	rembourrage: 0;
+	dimensionnement de la boîte: border-box;
 }
 
-.container {
-        display: flex;
+.récipient {
+        afficher: fléchir;
+		flex-wrap: envelopper;
       }
      
-.form {
-        flex: 1;
+.former {
+        fléchir: 1;
       }
       
-.description {
-        flex: 1;
-        margin-top: 50px;
-        border: 20px;
-        text-decoration: #e3d50c;
-        color: #181413;
-        padding: 10px 20px;
-        font: bold 16px Arial, sans-serif;
-
-      }
-
-
-nav {
-	background-color: #f2f2f2;
-	padding: 10px;
+navigation {
+	Couleur de l'arrière plan: #f2f2f2;
+	rembourrage: 10pixels;
 }
 
 ul {
@@ -41,7 +30,7 @@ li {
 }
 
 a {
-	text-decoration: #0f82ca;
+	text-decoration:none;
 	color: #0f82ca;
 	padding: 10px 20px;
 	border-radius: 5px;
@@ -56,10 +45,12 @@ a:hover {
 	flex-direction: column;
 	align-items: center;
 	margin-top: 50px;
+	width:100%;
+/*	max-width: 350px;*/
 }
 
 form {
-	background-color: #6c6565;
+	background-color: #e2b6b6;
 	border-radius: 5px;
 	box-shadow: 0 0 10px rgba(33, 9, 172, 0.3);
 	padding: 15px;
@@ -125,13 +116,12 @@ input[type="mdp_utilisateur"] {
 	text-align: center;
 }
 
-footer{
-	background: url("/accueil/image.webp");
-	margin-top: 5px;	
+/*footer{
+	background-color: #4CAF50;
+	margin-top: 10px;	
 	font-style: italic;
-	font-weight: 700;  
-	margin-bottom: 3px;		
-}
+	font-weight: 700;  	
+}*/
 
 	/*footer div.xx*/
 
@@ -144,7 +134,12 @@ div.xx{
 
 }
 
-
+div.footer{
+	background-color: #4CAF50;
+	margin-top: 10px;	
+	font-style: italic;
+	font-weight: 700;  
+}
 	/*footer div.xz*/
 
   div.xz{
@@ -207,7 +202,15 @@ div.float-start{
 		font-size: 18px;
 		text-shadow: 3.5px 3.5px 3.5px #333333;
 	}
-	
+	#art-1 img{
+		width:300px;height:200px;margin:20px;
+	}
+#art-2 img{
+	width:300px;height:200px;margin:20px;
+}
+#art-3 img{
+	width:300px;height:200px;margin:20px;
+}
 
 #line p{
 	        text-transform: uppercase ;
@@ -226,9 +229,10 @@ body{
 	background: url('./accueil/web.jpg');
 	background-position: center; 
 	background-repeat: no-repeat;
+	background-size: cover;
 }
 @media (max-width: 768px) {
-	body {
+	corps {
 	  background-size: 80%;
  
 	  background-position: center; 
