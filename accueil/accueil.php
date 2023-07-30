@@ -137,7 +137,7 @@ $nomUtilisateur = $_SESSION['nom_utilisateur'];
 		</form>
 	</div>
 	<script>
-     /*  document.getElementById("ajoutclient-form").classList.remove("hidden");*/
+     document.getElementById("ajoutmedicament-form").classList.remove("hidden");
 		  function showAjoutclientForm() {
 			var ajoutclientForm = document.getElementById("ajoutclient-form");
 			var commandeForm = document.getElementById("commande-form");
@@ -208,21 +208,21 @@ function logout() {
   // Effacer les cookies si nécessaire
   document.cookie = "nom_du_cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   
-  // Supprimer les données de la session stockées localement
-  sessionStorage.clear();
+  // Supprimer les données de la session disponibles localement
+  sessionStorage.claire();
 
   // Rediriger l'utilisateur vers la page de connexion 
-  window.location.href = "../index.php";
-  exit;
+  fenetre.emplacement.href = "../index.php";
+  sortie;
 }
 
-	</script>
-	            <footer>
-                <div class="">
-                    <div class="float-start">
-                        <h3 id="signature">juin-juillet 2023 &copy; ANDRIANAINA TSIRY KENNIA</h3>
+	</scénario>
+	            <Bas de page>
+                <classe div="">
+                    <classe div="démarrage flottant">
+                        <identifiant h3="signature">juin-juillet 2023 &copie ; ANDRIANAINA TSIRY KENNIA</h3>
                     </div>
                 </div>
-            </footer>
-</body>
+            </Bas de page>
+</corps>
 </html>
