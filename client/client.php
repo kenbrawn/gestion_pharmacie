@@ -82,21 +82,21 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../style/client.css" class="css">
-</head>
-<body>
-  <footer>
-    <div class="footer">
-        <div class="float-start">
-            <h3 id="signature">juin-juillet 2023 &copy; ANDRIANAINA TSIRY KENNIA</h3>
+<directeur>
+    <méta jeu de caractères="UTF-8">
+    <méta http-equiv="Compatible X-UA" contenu="IE=bord">
+    <méta Nom="fenêtre" contenu="width=device-width, initial-scale=1.0">
+    <titre>Document</titre>
+    <privilège rel="feuille de style" href="../style/client.css" cours="CSS">
+</directeur>
+<corps>
+  <bas de Page>
+    <div cours="Bas de page">
+        <div cours="démarrage flottant">
+            <h3 identifiant="signature">juin-juillet 2023 &Photocopieuse; ANDRIANAINA TSIRY KENNIA</h3>
         </div>
     </div>
-</footer>;   
-</body>
+</Bas de page>;   
+</corps>
 </html>
 
